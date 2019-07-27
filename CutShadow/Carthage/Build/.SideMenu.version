@@ -1,0 +1,9 @@
+{
+  "commitish" : "452b354e192da7dfa8a327fa4b2f82c5177a7c89",
+  "iOS" : [
+    {
+      "name" : "SideMenu",
+      "hash" : "79a36ea37288418ce1b71042aba57e378a96bbf20f4ea67ba58e51ed10682cf7"
+    }
+  ]
+}
