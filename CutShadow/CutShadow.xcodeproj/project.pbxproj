@@ -35,6 +35,11 @@
 		1967919922EC217F00AB9522 /* FCFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967919622EC217F00AB9522 /* FCFNavigationController.swift */; };
 		1967919E22EC229A00AB9522 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967919C22EC229A00AB9522 /* HomeVC.swift */; };
 		1967919F22EC229A00AB9522 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1967919D22EC229A00AB9522 /* HomeVC.xib */; };
+		312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */; };
+		312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */; };
+		312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */; };
+		312F6F9E22EDF8A100F5C8F6 /* TransitionPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */; };
+		312F6FA122EE007B00F5C8F6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F6FA022EE007B00F5C8F6 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +73,11 @@
 		1967919622EC217F00AB9522 /* FCFNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCFNavigationController.swift; sourceTree = "<group>"; };
 		1967919C22EC229A00AB9522 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1967919D22EC229A00AB9522 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEditor.framework; path = Carthage/Build/iOS/PixelEditor.framework; sourceTree = "<group>"; };
+		312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEngine.framework; path = Carthage/Build/iOS/PixelEngine.framework; sourceTree = "<group>"; };
+		312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
+		312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TransitionPatch.framework; path = Carthage/Build/iOS/TransitionPatch.framework; sourceTree = "<group>"; };
+		312F6FA022EE007B00F5C8F6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */,
+				312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */,
+				312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */,
+				312F6F9E22EDF8A100F5C8F6 /* TransitionPatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +100,7 @@
 			children = (
 				19213C7F22EBF58700CB8FC9 /* CutShadow */,
 				19213C7E22EBF58700CB8FC9 /* Products */,
+				312F6F9622EDF8A000F5C8F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,10 +206,30 @@
 		1967919B22EC220800AB9522 /* 业务 */ = {
 			isa = PBXGroup;
 			children = (
+				312F6F9F22EE005200F5C8F6 /* menu */,
 				1967919C22EC229A00AB9522 /* HomeVC.swift */,
 				1967919D22EC229A00AB9522 /* HomeVC.xib */,
 			);
 			path = "业务";
+			sourceTree = "<group>";
+		};
+		312F6F9622EDF8A000F5C8F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */,
+				312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */,
+				312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */,
+				312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		312F6F9F22EE005200F5C8F6 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				312F6FA022EE007B00F5C8F6 /* MenuViewController.swift */,
+			);
+			path = menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +242,7 @@
 				19213C7922EBF58700CB8FC9 /* Sources */,
 				19213C7A22EBF58700CB8FC9 /* Frameworks */,
 				19213C7B22EBF58700CB8FC9 /* Resources */,
+				312F6F9522EDF86800F5C8F6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -264,6 +300,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		312F6F9522EDF86800F5C8F6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/PixelEditor.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PixelEngine.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SideMenu.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TransitionPatch.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		19213C7922EBF58700CB8FC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -285,6 +345,7 @@
 				1967918B22EC215B00AB9522 /* TextViewExtension.swift in Sources */,
 				1967919222EC215B00AB9522 /* WaveView.swift in Sources */,
 				1967919122EC215B00AB9522 /* ToolManager.swift in Sources */,
+				312F6FA122EE007B00F5C8F6 /* MenuViewController.swift in Sources */,
 				1967918622EC215B00AB9522 /* UILableExtension.swift in Sources */,
 				1967918222EC215B00AB9522 /* DeviceExtension.swift in Sources */,
 				1967918922EC215B00AB9522 /* DateExtenstion.swift in Sources */,
@@ -440,6 +501,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HKJY6TSJ58;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CutShadow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -459,6 +524,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HKJY6TSJ58;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CutShadow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
