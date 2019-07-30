@@ -16,7 +16,7 @@ class HomeVC: FCFBaseViewController {
         
         // 创建一个按钮（点击后显示侧栏菜单）
         let button = UIButton(type:.system)
-        button.frame = CGRect(x:40, y:100, width:150, height:30)
+        button.frame = CGRect(x:0, y:kNavBarHeight - 44, width:64, height:44)
         button.setTitle("menu", for:.normal)
         button.addTarget(self, action:#selector(tapped), for:.touchUpInside)
         let itemBar = UIBarButtonItem(customView: button)
@@ -55,17 +55,17 @@ class HomeVC: FCFBaseViewController {
         menu.completionCurve = .easeIn
         
 //        // 阻止状态栏背景变黑
-//        SideMenuManager.default.menuFadeStatusBar = false
-//        // 将侧栏菜单初始fade值设为0.5
-//        SideMenuManager.default.menuAnimationFadeStrength = 0.5
-//
-//        // 将侧栏菜单初始时尺寸为正常值的一半
-//        SideMenuManager.default.menuAnimationTransformScaleFactor = 0.5
-//
-//        // 将侧栏菜单初始时尺寸为正常值的一半
-//        SideMenuManager.default.menuAnimationTransformScaleFactor = 0.5
-//        // 动画过程的背景色
-//        SideMenuManager.default.menuAnimationBackgroundColor = .orange
+        SideMenuManager.default.menuFadeStatusBar = false
+        // 将侧栏菜单初始fade值设为0.5
+        SideMenuManager.default.menuAnimationFadeStrength = 0.5
+
+        // 将侧栏菜单初始时尺寸为正常值的一半
+        SideMenuManager.default.menuAnimationTransformScaleFactor = 0.5
+
+        // 将侧栏菜单初始时尺寸为正常值的一半
+        SideMenuManager.default.menuAnimationTransformScaleFactor = 0.5
+        // 动画过程的背景色
+        SideMenuManager.default.menuAnimationBackgroundColor = .orange
         
     }
     

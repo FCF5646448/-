@@ -13,14 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    lazy var homeNavi:FCFNavigationController = {
+        let n = FCFNavigationController(rootViewController: HomeVC())
+        n.setTabBar("write", "write_sel", UIColor.hex("8a8a8a"), UIColor.hex(MainColor),title:"剪影")
+        return n
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
-        let root = FCFTabBarController()
-        window?.rootViewController = root
+        window?.rootViewController = self.homeNavi
         
         return true
     }
