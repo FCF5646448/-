@@ -35,6 +35,9 @@
 		1967919922EC217F00AB9522 /* FCFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967919622EC217F00AB9522 /* FCFNavigationController.swift */; };
 		1967919E22EC229A00AB9522 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967919C22EC229A00AB9522 /* HomeVC.swift */; };
 		1967919F22EC229A00AB9522 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1967919D22EC229A00AB9522 /* HomeVC.xib */; };
+		3109743923329011002B20D9 /* HomeVC+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3109743823329011002B20D9 /* HomeVC+Menu.swift */; };
+		3109743D233292E1002B20D9 /* CSSelectPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3109743B233292E1002B20D9 /* CSSelectPicVC.swift */; };
+		3109743E233292E1002B20D9 /* CSSelectPicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3109743C233292E1002B20D9 /* CSSelectPicVC.xib */; };
 		312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */; };
 		312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */; };
 		312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */; };
@@ -73,6 +76,9 @@
 		1967919622EC217F00AB9522 /* FCFNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCFNavigationController.swift; sourceTree = "<group>"; };
 		1967919C22EC229A00AB9522 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1967919D22EC229A00AB9522 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		3109743823329011002B20D9 /* HomeVC+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+Menu.swift"; sourceTree = "<group>"; };
+		3109743B233292E1002B20D9 /* CSSelectPicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSelectPicVC.swift; sourceTree = "<group>"; };
+		3109743C233292E1002B20D9 /* CSSelectPicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicVC.xib; sourceTree = "<group>"; };
 		312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEditor.framework; path = Carthage/Build/iOS/PixelEditor.framework; sourceTree = "<group>"; };
 		312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEngine.framework; path = Carthage/Build/iOS/PixelEngine.framework; sourceTree = "<group>"; };
 		312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
@@ -206,11 +212,22 @@
 		1967919B22EC220800AB9522 /* 业务 */ = {
 			isa = PBXGroup;
 			children = (
+				3109743A23329276002B20D9 /* PicThing */,
 				312F6F9F22EE005200F5C8F6 /* menu */,
 				1967919C22EC229A00AB9522 /* HomeVC.swift */,
+				3109743823329011002B20D9 /* HomeVC+Menu.swift */,
 				1967919D22EC229A00AB9522 /* HomeVC.xib */,
 			);
 			path = "业务";
+			sourceTree = "<group>";
+		};
+		3109743A23329276002B20D9 /* PicThing */ = {
+			isa = PBXGroup;
+			children = (
+				3109743B233292E1002B20D9 /* CSSelectPicVC.swift */,
+				3109743C233292E1002B20D9 /* CSSelectPicVC.xib */,
+			);
+			path = PicThing;
 			sourceTree = "<group>";
 		};
 		312F6F9622EDF8A000F5C8F6 /* Frameworks */ = {
@@ -292,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19213C8B22EBF58800CB8FC9 /* LaunchScreen.storyboard in Resources */,
+				3109743E233292E1002B20D9 /* CSSelectPicVC.xib in Resources */,
 				1967919F22EC229A00AB9522 /* HomeVC.xib in Resources */,
 				19213C8822EBF58800CB8FC9 /* Assets.xcassets in Resources */,
 				19213C8622EBF58700CB8FC9 /* Main.storyboard in Resources */,
@@ -333,6 +351,7 @@
 				1967919022EC215B00AB9522 /* DefaultHeader.swift in Sources */,
 				1967918722EC215B00AB9522 /* NotificationNameExtension.swift in Sources */,
 				19213C8322EBF58700CB8FC9 /* ViewController.swift in Sources */,
+				3109743923329011002B20D9 /* HomeVC+Menu.swift in Sources */,
 				1967918D22EC215B00AB9522 /* NavigationExtension.swift in Sources */,
 				1967918F22EC215B00AB9522 /* TextFieldExtension.swift in Sources */,
 				1967919822EC217F00AB9522 /* FCFBaseViewController.swift in Sources */,
@@ -354,6 +373,7 @@
 				19213C8122EBF58700CB8FC9 /* AppDelegate.swift in Sources */,
 				1967918122EC215B00AB9522 /* UIButtonExtension.swift in Sources */,
 				1967918A22EC215B00AB9522 /* CellExtension.swift in Sources */,
+				3109743D233292E1002B20D9 /* CSSelectPicVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

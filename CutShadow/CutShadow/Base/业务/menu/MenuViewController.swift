@@ -11,10 +11,13 @@ import UIKit
 // 菜单视图控制器
 class MenuViewController: UITableViewController {
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //创建一个重用的单元格
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+        self.tableView.separatorStyle = .none
     }
     
     // 分区数
