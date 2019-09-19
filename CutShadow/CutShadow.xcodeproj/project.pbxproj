@@ -12,6 +12,10 @@
 		19213C8622EBF58700CB8FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19213C8422EBF58700CB8FC9 /* Main.storyboard */; };
 		19213C8822EBF58800CB8FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19213C8722EBF58800CB8FC9 /* Assets.xcassets */; };
 		19213C8B22EBF58800CB8FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19213C8922EBF58800CB8FC9 /* LaunchScreen.storyboard */; };
+		19380499233356E3006CC711 /* CSSelectPicHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19380497233356E3006CC711 /* CSSelectPicHeadView.swift */; };
+		1938049A233356E3006CC711 /* CSSelectPicHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19380498233356E3006CC711 /* CSSelectPicHeadView.xib */; };
+		1938049D23335732006CC711 /* CSSelectPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938049B23335732006CC711 /* CSSelectPicCell.swift */; };
+		1938049E23335732006CC711 /* CSSelectPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1938049C23335732006CC711 /* CSSelectPicCell.xib */; };
 		1967918122EC215B00AB9522 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967916C22EC215A00AB9522 /* UIButtonExtension.swift */; };
 		1967918222EC215B00AB9522 /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967916D22EC215A00AB9522 /* DeviceExtension.swift */; };
 		1967918322EC215B00AB9522 /* TableView+CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967916E22EC215A00AB9522 /* TableView+CollectionView+Extension.swift */; };
@@ -53,6 +57,10 @@
 		19213C8722EBF58800CB8FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19213C8A22EBF58800CB8FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19213C8C22EBF58800CB8FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19380497233356E3006CC711 /* CSSelectPicHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSelectPicHeadView.swift; sourceTree = "<group>"; };
+		19380498233356E3006CC711 /* CSSelectPicHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicHeadView.xib; sourceTree = "<group>"; };
+		1938049B23335732006CC711 /* CSSelectPicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSelectPicCell.swift; sourceTree = "<group>"; };
+		1938049C23335732006CC711 /* CSSelectPicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicCell.xib; sourceTree = "<group>"; };
 		1967916C22EC215A00AB9522 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		1967916D22EC215A00AB9522 /* DeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceExtension.swift; sourceTree = "<group>"; };
 		1967916E22EC215A00AB9522 /* TableView+CollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+CollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -130,6 +138,17 @@
 				19213C8C22EBF58800CB8FC9 /* Info.plist */,
 			);
 			path = CutShadow;
+			sourceTree = "<group>";
+		};
+		19380496233355E5006CC711 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				19380497233356E3006CC711 /* CSSelectPicHeadView.swift */,
+				19380498233356E3006CC711 /* CSSelectPicHeadView.xib */,
+				1938049B23335732006CC711 /* CSSelectPicCell.swift */,
+				1938049C23335732006CC711 /* CSSelectPicCell.xib */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		1967916922EC215200AB9522 /* Base */ = {
@@ -224,6 +243,7 @@
 		3109743A23329276002B20D9 /* PicThing */ = {
 			isa = PBXGroup;
 			children = (
+				19380496233355E5006CC711 /* views */,
 				3109743B233292E1002B20D9 /* CSSelectPicVC.swift */,
 				3109743C233292E1002B20D9 /* CSSelectPicVC.xib */,
 			);
@@ -311,6 +331,8 @@
 				19213C8B22EBF58800CB8FC9 /* LaunchScreen.storyboard in Resources */,
 				3109743E233292E1002B20D9 /* CSSelectPicVC.xib in Resources */,
 				1967919F22EC229A00AB9522 /* HomeVC.xib in Resources */,
+				1938049A233356E3006CC711 /* CSSelectPicHeadView.xib in Resources */,
+				1938049E23335732006CC711 /* CSSelectPicCell.xib in Resources */,
 				19213C8822EBF58800CB8FC9 /* Assets.xcassets in Resources */,
 				19213C8622EBF58700CB8FC9 /* Main.storyboard in Resources */,
 			);
@@ -351,6 +373,7 @@
 				1967919022EC215B00AB9522 /* DefaultHeader.swift in Sources */,
 				1967918722EC215B00AB9522 /* NotificationNameExtension.swift in Sources */,
 				19213C8322EBF58700CB8FC9 /* ViewController.swift in Sources */,
+				1938049D23335732006CC711 /* CSSelectPicCell.swift in Sources */,
 				3109743923329011002B20D9 /* HomeVC+Menu.swift in Sources */,
 				1967918D22EC215B00AB9522 /* NavigationExtension.swift in Sources */,
 				1967918F22EC215B00AB9522 /* TextFieldExtension.swift in Sources */,
@@ -374,6 +397,7 @@
 				1967918122EC215B00AB9522 /* UIButtonExtension.swift in Sources */,
 				1967918A22EC215B00AB9522 /* CellExtension.swift in Sources */,
 				3109743D233292E1002B20D9 /* CSSelectPicVC.swift in Sources */,
+				19380499233356E3006CC711 /* CSSelectPicHeadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
