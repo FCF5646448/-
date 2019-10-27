@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191ABE982335F08700E10E25 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191ABE972335F08700E10E25 /* PhotoManager.swift */; };
 		19213C8122EBF58700CB8FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19213C8022EBF58700CB8FC9 /* AppDelegate.swift */; };
 		19213C8322EBF58700CB8FC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19213C8222EBF58700CB8FC9 /* ViewController.swift */; };
 		19213C8622EBF58700CB8FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19213C8422EBF58700CB8FC9 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		191ABE972335F08700E10E25 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		19213C7D22EBF58700CB8FC9 /* CutShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19213C8022EBF58700CB8FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19213C8222EBF58700CB8FC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191ABE962335F06A00E10E25 /* photos */ = {
+			isa = PBXGroup;
+			children = (
+				191ABE972335F08700E10E25 /* PhotoManager.swift */,
+			);
+			path = photos;
+			sourceTree = "<group>";
+		};
 		19213C7422EBF58700CB8FC9 = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 		3109743A23329276002B20D9 /* PicThing */ = {
 			isa = PBXGroup;
 			children = (
+				191ABE962335F06A00E10E25 /* photos */,
 				19380496233355E5006CC711 /* views */,
 				3109743B233292E1002B20D9 /* CSSelectPicVC.swift */,
 				3109743C233292E1002B20D9 /* CSSelectPicVC.xib */,
@@ -387,6 +398,7 @@
 				1967918B22EC215B00AB9522 /* TextViewExtension.swift in Sources */,
 				1967919222EC215B00AB9522 /* WaveView.swift in Sources */,
 				1967919122EC215B00AB9522 /* ToolManager.swift in Sources */,
+				191ABE982335F08700E10E25 /* PhotoManager.swift in Sources */,
 				312F6FA122EE007B00F5C8F6 /* MenuViewController.swift in Sources */,
 				1967918622EC215B00AB9522 /* UILableExtension.swift in Sources */,
 				1967918222EC215B00AB9522 /* DeviceExtension.swift in Sources */,
