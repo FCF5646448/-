@@ -75,7 +75,9 @@ extension CSSelectPicVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            let header:CSSelectPicHeadView = collectionView.dequeueReusableSectionHead(CSSelectPicHeadView.self, indexPath: indexPath) as CSSelectPicHeadView
+            
+            let header:CSSelectPicHeadView = collectionView.dequeueReusableSectionHead(CSSelectPicHeadView.self, indexPath: indexPath)
+            
 //            if let m = self.model, indexPath.section < m.pageChoiceTree.count  {
 //                let tree = m.pageChoiceTree[indexPath.section]
 //                if let imgStr = tree.icon {

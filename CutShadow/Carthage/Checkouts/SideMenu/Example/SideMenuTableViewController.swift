@@ -6,7 +6,6 @@
 //  Copyright © 2016 CocoaPods. All rights reserved.
 //
 
-import Foundation
 import SideMenu
 
 class SideMenuTableViewController: UITableViewController {
@@ -17,7 +16,7 @@ class SideMenuTableViewController: UITableViewController {
         // refresh cell blur effect in case it changed
         tableView.reloadData()
         
-        guard let menu = navigationController as? UISideMenuNavigationController, menu.blurEffectStyle == nil else {
+        guard let menu = navigationController as? SideMenuNavigationController, menu.blurEffectStyle == nil else {
             return
         }
         
@@ -31,7 +30,7 @@ class SideMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath) as! UITableViewVibrantCell
 
-        if let menu = navigationController as? UISideMenuNavigationController {
+        if let menu = navigationController as? SideMenuNavigationController {
             cell.blurEffectStyle = menu.blurEffectStyle
         }
         

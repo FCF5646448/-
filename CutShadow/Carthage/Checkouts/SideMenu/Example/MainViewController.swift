@@ -26,14 +26,14 @@ class MainViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let sideMenuNavigationController = segue.destination as? UISideMenuNavigationController else { return }
+        guard let sideMenuNavigationController = segue.destination as? SideMenuNavigationController else { return }
         sideMenuNavigationController.settings = makeSettings()
     }
     
     private func setupSideMenu() {
         // Define the menus
-        SideMenuManager.default.leftMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
-        SideMenuManager.default.rightMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "RightMenuNavigationController") as? UISideMenuNavigationController
+        SideMenuManager.default.leftMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
+        SideMenuManager.default.rightMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "RightMenuNavigationController") as? SideMenuNavigationController
         
         // Enable gestures. The left and/or right menus must be set up above for these to work.
         // Note that these continue to work on the Navigation Controller independent of the View Controller it displays!
@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
     private func updateUI(settings: SideMenuSettings) {
         let styles:[UIBlurEffect.Style] = [.dark, .light, .extraLight]
         if let menuBlurEffectStyle = settings.blurEffectStyle {
-            blurSegmentControl.selectedSegmentIndex = styles.firstIndex(of: menuBlurEffectStyle) ?? 0
+            blurSegmentControl.selectedSegmentIndex = (styles.firstIndex(of: menuBlurEffectStyle) ?? 0) + 1
         } else {
             blurSegmentControl.selectedSegmentIndex = 0
         }
@@ -98,21 +98,21 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UISideMenuNavigationControllerDelegate {
+extension MainViewController: SideMenuNavigationControllerDelegate {
     
-    func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Appearing! (animated: \(animated))")
     }
     
-    func sideMenuDidAppear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuDidAppear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Appeared! (animated: \(animated))")
     }
     
-    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Disappearing! (animated: \(animated))")
     }
     
-    func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Disappeared! (animated: \(animated))")
     }
 }

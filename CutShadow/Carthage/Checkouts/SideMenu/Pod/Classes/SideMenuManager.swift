@@ -30,8 +30,8 @@ public class SideMenuManager: NSObject {
 
         var name: String {
             switch self {
-            case .left: return "menuLeftNavigationController"
-            case .right: return "menuRightNavigationController"
+            case .left: return "leftMenuNavigationController"
+            case .right: return "rightMenuNavigationController"
             }
         }
     }
@@ -50,7 +50,7 @@ public class SideMenuManager: NSObject {
     }
 
     /// The left menu.
-    open var leftMenuNavigationController: UISideMenuNavigationController? {
+    open var leftMenuNavigationController: SideMenuNavigationController? {
         get {
             if _leftMenu.value?.isHidden == true {
                 _leftMenu.value?.leftSide = true
@@ -61,7 +61,7 @@ public class SideMenuManager: NSObject {
     }
     
     /// The right menu.
-    open var rightMenuNavigationController: UISideMenuNavigationController? {
+    open var rightMenuNavigationController: SideMenuNavigationController? {
         get {
             if _rightMenu.value?.isHidden == true {
                 _rightMenu.value?.leftSide = false
@@ -151,7 +151,6 @@ private extension SideMenuManager {
             let width = activeMenu.menuWidth
             let distance = gesture.xTranslation / width
             switch (gesture.state) {
-            case .began: break
             case .changed:
                 if gesture.canSwitch {
                     switching = (distance > 0 && !activeMenu.leftSide) || (distance < 0 && activeMenu.leftSide)
@@ -171,12 +170,11 @@ private extension SideMenuManager {
             } else {
                 // not sure which way the user is swiping yet, so do nothing
                 if gesture.xTranslation == 0 { return }
-
                 leftSide = gesture.xTranslation > 0
             }
 
             guard let menu = menu(forLeftSide: leftSide) else { return }
-            menu.presentFrom(activeViewController, interactively: true)
+            menu.present(from: topMostViewController, interactively: true)
         }
 
         activeMenu?.handleMenuPan(gesture, true)
@@ -202,12 +200,10 @@ private extension SideMenuManager {
     func addScreenEdgeGesture(to view: UIView, edge: UIRectEdge) -> UIScreenEdgePanGestureRecognizer {
         if let screenEdgeGestureRecognizer = view.gestureRecognizers?.first(where: { $0 is SideMenuScreenEdgeGestureRecognizer }) as? SideMenuScreenEdgeGestureRecognizer,
             screenEdgeGestureRecognizer.edges == edge {
-            view.removeGestureRecognizer(screenEdgeGestureRecognizer)
+            screenEdgeGestureRecognizer.remove()
         }
-        return SideMenuScreenEdgeGestureRecognizer {
+        return SideMenuScreenEdgeGestureRecognizer(addTo: view, target: self, action: #selector(handlePresentMenuScreenEdge(_:))).with {
             $0.edges = edge
-            $0.addTarget(self, action: #selector(handlePresentMenuScreenEdge(_:)))
-            view.addGestureRecognizer($0)
         }
     }
 
@@ -215,22 +211,19 @@ private extension SideMenuManager {
         if let panGestureRecognizer = view.gestureRecognizers?.first(where: { $0 is SideMenuPanGestureRecognizer }) as? SideMenuPanGestureRecognizer {
             return panGestureRecognizer
         }
-        return SideMenuPanGestureRecognizer {
-            $0.addTarget(self, action: #selector(handlePresentMenuPan(_:)))
-            view.addGestureRecognizer($0)
-        }
+        return SideMenuPanGestureRecognizer(addTo: view, target: self, action: #selector(handlePresentMenuPan(_:)))
     }
 
-    var activeViewController: UIViewController? {
-        return UIApplication.shared.keyWindow?.rootViewController?.activeViewController
+    var topMostViewController: UIViewController? {
+        return UIApplication.shared.keyWindow?.rootViewController?.topMostViewController
     }
 }
 
-extension SideMenuManager: UISideMenuNavigationControllerTransitionDelegate {
+extension SideMenuManager: SideMenuNavigationControllerTransitionDelegate {
 
     internal func sideMenuTransitionDidDismiss(menu: Menu) {
         defer { switching = false }
         guard switching, let switchToMenu = self.menu(forLeftSide: !menu.leftSide) else { return }
-        switchToMenu.presentFrom(activeViewController, interactively: true)
+        switchToMenu.present(from: topMostViewController, interactively: true)
     }
 }

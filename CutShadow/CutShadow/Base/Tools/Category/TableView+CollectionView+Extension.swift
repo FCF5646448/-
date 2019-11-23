@@ -93,7 +93,7 @@ extension UICollectionView{
 
 extension UITableView {
     var hintLabel:UILabel {
-        let lb = UILabel.init(frame: CGRect(x: 0, y: self.frame.size.height-21, width: ScreenWidth, height: 21))
+        let lb = UILabel.init(frame: CGRect(x: 0, y: self.frame.size.height-21, width: kScreenWidth, height: 21))
         lb.textAlignment = .center
         return lb
     }

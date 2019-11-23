@@ -1,4 +1,5 @@
 # ▤ SideMenu
+[![CircleCI](https://circleci.com/gh/jonkykong/SideMenu.svg?style=svg)](https://circleci.com/gh/jonkykong/SideMenu)
 [![Version](https://img.shields.io/cocoapods/v/SideMenu.svg?style=flat-square)](http://cocoapods.org/pods/SideMenu)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/SideMenu.svg?style=flat-square)](http://cocoapods.org/pods/SideMenu)
@@ -18,13 +19,14 @@
 * **[Installation](#installation)**
   * [CocoaPods](#cocoapods)
   * [Carthage](#carthage)
+  * [Swift Package Manager](#swift-package-manager)
 * **[Usage](#usage)**
   * [Code-less Storyboard Implementation](#code-less-storyboard-implementation)
   * [Code Implementation](#code-implementation)
 * **[Customization](#customization)**
   * [SideMenuManager](#sidemenumanager)
-  * [UISideMenuNavigationController](#uisidemenunavigationcontroller)
-  * [UISideMenuNavigationControllerDelegate](#uisidemenunavigationcontrollerdelegate)
+  * [SideMenuNavigationController](#sidemenunavigationcontroller)
+  * [SideMenuNavigationControllerDelegate](#sidemenunavigationcontrollerdelegate)
   * [Advanced](#advanced)
 * [Known Issues](#known-issues)
 * [Thank You](#thank-you)
@@ -34,7 +36,7 @@
 
 SideMenu is a simple and versatile side menu control written in Swift.
 - [x] **It can be implemented in storyboard without a single line of [code](#code-less-storyboard-implementation).**
-- [x] Four standard animation styles to choose from (there's even a parallax effect if you want to get weird).
+- [x] Eight standard animation styles to choose from (there's even a parallax effect if you want to get weird).
 - [x] Highly customizable without needing to write tons of custom code.
 - [x] Supports continuous swiping between side menus on boths sides in a single gesture.
 - [x] Global menu configuration. Set-up once and be done for all screens.
@@ -49,7 +51,7 @@ Check out the example project to see it in action!
 | ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideOut.gif) | ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideIn.gif) | ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Dissolve.gif) | ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/InOut.gif) |
 
 ## Requirements
-- [x] Xcode 10.
+- [x] Xcode 11.
 - [x] Swift 5.
 - [x] iOS 10 or higher.
 
@@ -72,10 +74,10 @@ use_frameworks!
 pod 'SideMenu'
 
 # For Swift 5 use:
-# pod 'SideMenu', '~> 6.0.0'
+# pod 'SideMenu', '~> 6.0'
 
 # For Swift 4.2 (no longer maintained) use:
-# pod 'SideMenu', '~> 5.0.0'
+# pod 'SideMenu', '~> 5.0'
 ```
 
 Then, run the following command:
@@ -101,12 +103,24 @@ To integrate SideMenu into your Xcode project using Carthage, specify it in your
 github "jonkykong/SideMenu" "master"
 ```
 
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but SideMenu does support its use on supported platforms.
+
+Once you have your Swift package set up, adding SideMenu as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/jonkykong/SideMenu.git", from: "6.0.0")
+]
+```
+
 ## Usage
 ### Code-less Storyboard Implementation
-1. Create a Navigation Controller for a side menu. Set the `Custom Class` of the Navigation Controller to be `UISideMenuNavigationController` in the **Identity Inspector**. Set the `Module` to `SideMenu` (ignore this step if you've manually added SideMenu to your project). Create a Root View Controller for the Navigation Controller (shown as a UITableViewController below). Set up any Triggered Segues you want in that view controller.
+1. Create a Navigation Controller for a side menu. Set the `Custom Class` of the Navigation Controller to be `SideMenuNavigationController` in the **Identity Inspector**. Set the `Module` to `SideMenu` (ignore this step if you've manually added SideMenu to your project). Create a Root View Controller for the Navigation Controller (shown as a UITableViewController below). Set up any Triggered Segues you want in that view controller.
 ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Screenshot1.png)
 
-2. Set the `Left Side` property of the `UISideMenuNavigationController` to On if you want it to appear from the left side of the screen, or Off/Default if you want it to appear from the right side.
+2. Set the `Left Side` property of the `SideMenuNavigationController` to On if you want it to appear from the left side of the screen, or Off/Default if you want it to appear from the right side.
 ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Screenshot2.png)
 
 3. Add a UIButton or UIBarButton to a view controller that you want to display the menu from. Set that button's Triggered Segues action to modally present the Navigation Controller from step 1.
@@ -122,10 +136,10 @@ import SideMenu
 From a button, do something like this:
 ``` swift
 // Define the menu
-let menu = UISideMenuNavigationController(rootViewController: YourViewController)
-// UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration 
+let menu = SideMenuNavigationController(rootViewController: YourViewController)
+// SideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration 
 // of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
-// let menu = storyboard!.instantiateViewController(withIdentifier: "RightMenu") as! UISideMenuNavigationController
+// let menu = storyboard!.instantiateViewController(withIdentifier: "RightMenu") as! SideMenuNavigationController
 present(menu, animated: true, completion: nil)
 ```
 
@@ -137,10 +151,10 @@ dismiss(animated: true, completion: nil)
 To use gestures you have to use the `SideMenuManager`. In your `AppDelegate` do something like this:
 ``` swift
 // Define the menus
-let leftMenuNavigationController = UISideMenuNavigationController(rootViewController: YourViewController)
+let leftMenuNavigationController = SideMenuNavigationController(rootViewController: YourViewController)
 SideMenuManager.default.leftMenuNavigationController = leftMenuNavigationController
 
-let rightMenuNavigationController = UISideMenuNavigationController(rootViewController: YourViewController)
+let rightMenuNavigationController = SideMenuNavigationController(rootViewController: YourViewController)
 SideMenuManager.default.rightMenuNavigationController = rightMenuNavigationController
 
 // Setup gestures: the left and/or right menus must be set up (above) for these to work.
@@ -149,9 +163,9 @@ SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController
 SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
 
 // (Optional) Prevent status bar area from turning black when menu appears:
-menuLeftNavigationController.statusBarEndAlpha = 0
+leftMenuNavigationController.statusBarEndAlpha = 0
 // Copy all settings to the other menu
-menuRightNavigationController.settings = menuLeftNavigationController.settings
+rightMenuNavigationController.settings = leftMenuNavigationController.settings
 ```
 That's it.
 ### Customization
@@ -159,9 +173,9 @@ That's it.
 `SideMenuManager` supports the following:
 ``` swift
 /// The left menu.
-open var menuLeftNavigationController: UISideMenuNavigationController?
+open var leftMenuNavigationController: SideMenuNavigationController?
 /// The right menu.
-public var menuRightNavigationController: UISideMenuNavigationController?
+public var rightMenuNavigationController: SideMenuNavigationController?
 /**
  Adds screen edge gestures for both left and right sides to a view to present a menu.
 
@@ -188,8 +202,8 @@ public var menuRightNavigationController: UISideMenuNavigationController?
  */
 @discardableResult public func addPanGestureToPresent(toView view: UIView) -> UIPanGestureRecognizer
 ```
-#### UISideMenuNavigationController
-`UISideMenuNavigationController` supports the following:
+#### SideMenuNavigationController
+`SideMenuNavigationController` supports the following:
 ``` swift
 /// Prevents the same view controller (or a view controller of the same class) from being pushed more than once. Defaults to true.
 var allowPushOfSameClassTwice: Bool = true
@@ -217,8 +231,10 @@ var dismissOnPush: Bool = true
 var dismissOnRotation: Bool = true
 /// Automatically dismisses the menu when app goes to the background.
 var dismissWhenBackgrounded: Bool = true
-/// Enable or disable gestures that would swipe to dismiss the menu. Default is true.
-var enableSwipeGestures: Bool = true
+/// Enable or disable a swipe gesture that dismisses the menu. Will not be triggered when `presentingViewControllerUserInteractionEnabled` is set to true. Default is true.
+var enableSwipeToDismissGesture: Bool = true
+/// Enable or disable a tap gesture that dismisses the menu. Will not be triggered when `presentingViewControllerUserInteractionEnabled` is set to true. Default is true.
+var enableTapToDismissGesture: Bool = true
 /// The animation initial spring velocity when a menu is displayed. Ignored when displayed with a gesture.
 var initialSpringVelocity: CGFloat = 1
 /// Whether the menu appears on the right or left side of the screen. Right is the default. This property cannot be changed after the menu has loaded.
@@ -272,29 +288,29 @@ static let viewSlideOutMenuPartialOut: SideMenuPresentStyle
 /// The existing view slides out and shrinks to reveal the menu underneath.
 static let viewSlideOutMenuZoom: SideMenuPresentStyle
 ```
-#### UISideMenuNavigationControllerDelegate
-To receive notifications when a menu is displayed from a view controller, have it adhere to the  `UISideMenuNavigationControllerDelegate` protocol:
+#### SideMenuNavigationControllerDelegate
+To receive notifications when a menu is displayed from a view controller, have it adhere to the  `SideMenuNavigationControllerDelegate` protocol:
 ``` swift
-extension MyViewController: UISideMenuNavigationControllerDelegate {
+extension MyViewController: SideMenuNavigationControllerDelegate {
 
-    func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Appearing! (animated: \(animated))")
     }
 
-    func sideMenuDidAppear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuDidAppear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Appeared! (animated: \(animated))")
     }
 
-    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Disappearing! (animated: \(animated))")
     }
 
-    func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Disappeared! (animated: \(animated))")
     }
 }
 ```
-*Note: setting the  `sideMenuDelegate` property on `UISideMenuNavigationController` is optional. If your view controller adheres to the protocol then the methods will be called automatically.*
+*Note: setting the  `sideMenuDelegate` property on `SideMenuNavigationController` is optional. If your view controller adheres to the protocol then the methods will be called automatically.*
 ### Advanced
 <details>
 <summary>Click for Details</summary>
@@ -306,9 +322,9 @@ For simplicity, `SideMenuManager.default` serves as the primary instance as most
 let customSideMenuManager = SideMenuManager()
 ```
 2. Setup and display menus with your custom instance the same as you would with the  `SideMenuManager.default` instance.
-3. If using Storyboards, subclass your instance of `UISideMenuNavigationController` and set its `sideMenuManager` property to your custom instance. This must be done before `viewDidLoad` is called:
+3. If using Storyboards, subclass your instance of `SideMenuNavigationController` and set its `sideMenuManager` property to your custom instance. This must be done before `viewDidLoad` is called:
 ``` swift
-class MySideMenuNavigationController: UISideMenuNavigationController {
+class MySideMenuNavigationController: SideMenuNavigationController {
 
     let customSideMenuManager = SideMenuManager()
 
@@ -319,10 +335,10 @@ class MySideMenuNavigationController: UISideMenuNavigationController {
     }
 }
 ```
-Alternatively, you can set  `sideMenuManager` from the view controller that segues to your UISideMenuNavigationController:
+Alternatively, you can set  `sideMenuManager` from the view controller that segues to your SideMenuNavigationController:
 ``` swift
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let sideMenuNavigationController = segue.destination as? UISideMenuNavigationController {
+    if let sideMenuNavigationController = segue.destination as? SideMenuNavigationController {
         sideMenuNavigationController.sideMenuManager = customSideMenuManager
     }
 }
