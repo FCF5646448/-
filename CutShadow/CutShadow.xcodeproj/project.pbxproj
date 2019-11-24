@@ -48,7 +48,46 @@
 		312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */; };
 		312F6F9E22EDF8A100F5C8F6 /* TransitionPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */; };
 		312F6FA122EE007B00F5C8F6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F6FA022EE007B00F5C8F6 /* MenuViewController.swift */; };
+		3195EDC5238A1783003351E6 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3195EDC0238A1759003351E6 /* GPUImage.framework */; };
+		3195EDC7238A17BC003351E6 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3195EDC0238A1759003351E6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3195EDBF238A1759003351E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3195EDBA238A1759003351E6 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE0BE7C20D6DE610006E120;
+			remoteInfo = GPUImage_iOS;
+		};
+		3195EDC1238A1759003351E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3195EDBA238A1759003351E6 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE0BE8C20D6E2B80006E120;
+			remoteInfo = GPUImage_macOS;
+		};
+		3195EDC3238A176E003351E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3195EDBA238A1759003351E6 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE0BE7B20D6DE610006E120;
+			remoteInfo = GPUImage_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3195EDC6238A17A1003351E6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3195EDC7238A17BC003351E6 /* GPUImage.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		191ABE972335F08700E10E25 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
@@ -94,6 +133,7 @@
 		312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
 		312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TransitionPatch.framework; path = Carthage/Build/iOS/TransitionPatch.framework; sourceTree = "<group>"; };
 		312F6FA022EE007B00F5C8F6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		3195EDBA238A1759003351E6 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GPUImage.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3195EDC5238A1783003351E6 /* GPUImage.framework in Frameworks */,
 				312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */,
 				312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */,
 				312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */,
@@ -139,6 +180,7 @@
 		19213C7F22EBF58700CB8FC9 /* CutShadow */ = {
 			isa = PBXGroup;
 			children = (
+				3195EDBA238A1759003351E6 /* GPUImage.xcodeproj */,
 				1967916922EC215200AB9522 /* Base */,
 				19213C8022EBF58700CB8FC9 /* AppDelegate.swift */,
 				19213C8222EBF58700CB8FC9 /* ViewController.swift */,
@@ -280,6 +322,15 @@
 			path = menu;
 			sourceTree = "<group>";
 		};
+		3195EDBB238A1759003351E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3195EDC0238A1759003351E6 /* GPUImage.framework */,
+				3195EDC2238A1759003351E6 /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,10 +342,12 @@
 				19213C7A22EBF58700CB8FC9 /* Frameworks */,
 				19213C7B22EBF58700CB8FC9 /* Resources */,
 				312F6F9522EDF86800F5C8F6 /* ShellScript */,
+				3195EDC6238A17A1003351E6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3195EDC4238A176E003351E6 /* PBXTargetDependency */,
 			);
 			name = CutShadow;
 			productName = CutShadow;
@@ -327,12 +380,35 @@
 			mainGroup = 19213C7422EBF58700CB8FC9;
 			productRefGroup = 19213C7E22EBF58700CB8FC9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3195EDBB238A1759003351E6 /* Products */;
+					ProjectRef = 3195EDBA238A1759003351E6 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				19213C7C22EBF58700CB8FC9 /* CutShadow */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3195EDC0238A1759003351E6 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 3195EDBF238A1759003351E6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3195EDC2238A1759003351E6 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 3195EDC1238A1759003351E6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		19213C7B22EBF58700CB8FC9 /* Resources */ = {
@@ -414,6 +490,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3195EDC4238A176E003351E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage_iOS;
+			targetProxy = 3195EDC3238A176E003351E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		19213C8422EBF58700CB8FC9 /* Main.storyboard */ = {
@@ -556,7 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKJY6TSJ58;
+				DEVELOPMENT_TEAM = ADX9ZP8Q93;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -579,7 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKJY6TSJ58;
+				DEVELOPMENT_TEAM = ADX9ZP8Q93;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

@@ -27,13 +27,20 @@ class PhotoManager: NSObject {
     //相簿列表项集合
     var albumItems:[FCFAlbumItem] = []
     
+    var resultCallBack:((_ result:Bool,_ item:[FCFAlbumItem])->Void)?=nil
     
 }
 
 // 这里只负责 获取相册及资源 (PHAsset) , 但是真正要获取图像需要PHImageManager
 extension PhotoManager {
-    func requestAuthon(_ complete:((_ item:[FCFAlbumItem])->Void)?) {
+    func requestAuthon(_ complete:((_ result:Bool,_ item:[FCFAlbumItem])->Void)?) {
+        self.resultCallBack = complete
         PHPhotoLibrary.requestAuthorization { (status) in
+            if status != .authorized {
+                self.resultCallBack?(false, [])
+                return
+            }
+            
             //列出所有系统的智能相册
             let smartOptions = PHFetchOptions()
             let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: smartOptions)
@@ -50,7 +57,7 @@ extension PhotoManager {
                 return item1.fetchResult.count > item2.fetchResult.count
             }
             
-            
+            self.resultCallBack?(true, self.albumItems)
             
         }
     }
@@ -72,6 +79,8 @@ extension PhotoManager {
                 albumItems.append(FCFAlbumItem(title: title,
                                           fetchResult: assetsFetchResult))
             }
+            
+            
         }
     }
     

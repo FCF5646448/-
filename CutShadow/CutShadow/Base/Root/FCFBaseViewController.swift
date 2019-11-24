@@ -24,14 +24,13 @@ class FCFBaseViewController: UIViewController {
         leftBtn.imageView?.contentMode = .scaleAspectFit
         
         leftBtn.setTitle(title, for: .normal)
-        leftBtn.setImage(UIImage(named: "btn_last_38"), for: .normal)
+        leftBtn.setImage(UIImage(named: "btn_las@objc t_38"), for: .normal)
         leftBtn.addTarget(self, action: #selector(customReturnBtnClicked), for: .touchUpInside)
         let leftBtnItem = UIBarButtonItem(customView: leftBtn)
         self.navigationItem.leftBarButtonItem = leftBtnItem
     }
     
-    @objc func customReturnBtnClicked(){
+    @objc dynamic func customReturnBtnClicked(){
         
     }
-
 }

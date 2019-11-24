@@ -15,4 +15,11 @@ class CSSelectPicHeadView: UICollectionReusableView {
         
     }
     
+    @IBAction func videoBtnAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func photoAction(_ sender: Any) {
+        
+    }
 }

@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import Photos
 
-/*选取图片页*/
+/*选取图片页、摄像和拍照入口*/
 class CSSelectPicVC: FCFBaseViewController {
 
     @IBOutlet weak var collect: UICollectionView!
     
-    let collectItemW:CGFloat = (kScreenWidth - 40) / 3.0
+    var dataSource:PHFetchResult<PHAsset>?
     
-    var dataSource:[String] = ["","","","","","","","","",""]
+    var imgManager = PHCachingImageManager()
+    
+    let collectItemW:CGFloat = (kScreenWidth - 20) / 3.0
+    
+    
+//    var dataSource:[String] = ["","","","","","","","","",""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +37,40 @@ extension CSSelectPicVC {
         collect.registerNibWithCell(CSSelectPicCell.self)
         collect.registerNibForSectionHead(CSSelectPicHeadView.self)
         
+        
+        weak var weakself = self
+        PhotoManager.share.requestAuthon { (result, albums) in
+            DispatchQueue.main.async {
+                if result {
+                    if let currentAlbum = albums.first {
+                        weakself?.title = currentAlbum.title
+                        self.dataSource = currentAlbum.fetchResult
+                        self.collect.reloadData()
+                    }
+                }else{
+                    weakself?.customReturnBtnClicked()
+                }
+            }
+        }
+        
+        self.customReturnBtn()
+        
+        
     }
+    
+    override func customReturnBtnClicked() {
+        super.customReturnBtnClicked()
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    //重置缓存
+    func resetCachedAssets() {
+        self.imgManager.stopCachingImagesForAllAssets()
+    }
+    
+    
+    
+    
 }
 
 
@@ -46,28 +85,42 @@ extension CSSelectPicVC : UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         //上下缝隙
-        return 10.0
+        return 5.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         //item之间缝隙
-        return 10.0
+        return 5.0
     }
 }
 
 extension CSSelectPicVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataSource.count
+        return self.dataSource?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CSSelectPicCell = collectionView.dequeueReusableCell(CSSelectPicCell.self, indexPath: indexPath) as CSSelectPicCell
+        
+        if let assets = self.dataSource, indexPath.row < assets.count {
+            let asset = assets[indexPath.row]
+            
+            let scale = UIScreen.main.scale
+            let assetGridThumbnailSize = CGSize(width: cell.img.width*scale ,
+                                            height: cell.img.height*scale)
+            
+            self.imgManager.requestImage(for: asset, targetSize: assetGridThumbnailSize, contentMode: .default, options: nil) { (img, info) in
+                if let image = img, let value = info?[PHImageResultIsDegradedKey] as? Int, value == 0 {
+                    cell.img.image = image
+                }
+            }
+        }
         
         return cell
     }
@@ -97,15 +150,15 @@ extension CSSelectPicVC : UICollectionViewDelegate {
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let origin = self.dataSource[sourceIndexPath.row]
-        self.dataSource.remove(at: sourceIndexPath.row)
-        self.dataSource.insert(origin, at: destinationIndexPath.row)
-    }
+//    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        let origin = self.dataSource[sourceIndexPath.row]
+//        self.dataSource.remove(at: sourceIndexPath.row)
+//        self.dataSource.insert(origin, at: destinationIndexPath.row)
+//    }
 }
 
 
