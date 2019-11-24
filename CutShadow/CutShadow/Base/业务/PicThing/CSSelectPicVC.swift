@@ -130,14 +130,8 @@ extension CSSelectPicVC : UICollectionViewDataSource {
         if kind == UICollectionView.elementKindSectionHeader {
             
             let header:CSSelectPicHeadView = collectionView.dequeueReusableSectionHead(CSSelectPicHeadView.self, indexPath: indexPath)
-            
-//            if let m = self.model, indexPath.section < m.pageChoiceTree.count  {
-//                let tree = m.pageChoiceTree[indexPath.section]
-//                if let imgStr = tree.icon {
-//                    header.img.sd_setImage(with: URL(string: imgStr), placeholderImage: UIImage(named: "loginIcon"))
-//                }
-//                header.nameL.text = tree.name
-//            }
+            header.delegate = self
+
             return header
         }
         return UICollectionReusableView()
@@ -159,6 +153,22 @@ extension CSSelectPicVC : UICollectionViewDelegate {
 //        self.dataSource.remove(at: sourceIndexPath.row)
 //        self.dataSource.insert(origin, at: destinationIndexPath.row)
 //    }
+}
+
+
+extension CSSelectPicVC : CSSelectPicHeadViewDelegate {
+    func csselectPicHeadAction(type:SelectActionType) {
+        switch type {
+        case .takePhoto:
+            let vc = TakePhotoVC()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            break
+        case .takeVideo:
+            
+            break
+        }
+    }
 }
 
 

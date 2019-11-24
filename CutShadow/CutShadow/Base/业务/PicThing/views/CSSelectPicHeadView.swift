@@ -8,7 +8,18 @@
 
 import UIKit
 
+enum SelectActionType {
+    case takePhoto
+    case takeVideo
+}
+
+protocol CSSelectPicHeadViewDelegate:NSObjectProtocol {
+    func csselectPicHeadAction(type:SelectActionType)
+}
+
 class CSSelectPicHeadView: UICollectionReusableView {
+
+    weak var delegate:CSSelectPicHeadViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,10 +27,10 @@ class CSSelectPicHeadView: UICollectionReusableView {
     }
     
     @IBAction func videoBtnAction(_ sender: Any) {
-        
+        self.delegate?.csselectPicHeadAction(type: .takeVideo)
     }
     
     @IBAction func photoAction(_ sender: Any) {
-        
+        self.delegate?.csselectPicHeadAction(type: .takePhoto)
     }
 }
