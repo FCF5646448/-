@@ -13,7 +13,6 @@ class FCFNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setAppearance()
-//        setTabBarTitleColor()
     }
     
 
