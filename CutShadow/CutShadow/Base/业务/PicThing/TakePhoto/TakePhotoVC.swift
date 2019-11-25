@@ -14,7 +14,7 @@ import Photos
 // 拍摄 照片
 class TakePhotoVC: FCFBaseViewController {
     
-    var filter:GPUImageSketchFilter = GPUImageSketchFilter()
+    var filter:GPUImageFilter = GPUImageFilter()
     
     var isPause:Bool = false
     
@@ -22,13 +22,14 @@ class TakePhotoVC: FCFBaseViewController {
     fileprivate lazy var camera : GPUImageStillCamera = {
         let cm:GPUImageStillCamera = GPUImageStillCamera(sessionPreset: AVCaptureSession.Preset.high.rawValue, cameraPosition: .front)
         cm.outputImageOrientation = .portrait
+        cm.horizontallyMirrorFrontFacingCamera = true
         return cm
     }()
     
     override func loadView() {
         let imgView = GPUImageView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
         imgView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,UIView.AutoresizingMask.flexibleHeight]
-        imgView.fillMode = .preserveAspectRatio
+        imgView.fillMode = .preserveAspectRatioAndFill
         self.view  = imgView
     }
 
@@ -51,6 +52,8 @@ class TakePhotoVC: FCFBaseViewController {
     func beginCapture() {
         self.camera.addTarget(self.filter)
         self.filter.addTarget((self.view as! GPUImageInput))
+        
+        //TODO :   这句是导致相机打开会卡顿的主要原因,后续需要优化
         self.camera.startCapture()
     }
     
