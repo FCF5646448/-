@@ -14,9 +14,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0A-sf-v56">
-                    <rect key="frame" x="187" y="8" width="37" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0A-sf-v56">
+                    <rect key="frame" x="200" y="0.0" width="40" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="lsW-ed-uwB"/>
+                        <constraint firstAttribute="width" constant="40" id="n7C-l5-9Uy"/>
+                    </constraints>
                     <state key="normal" title="拍照">
                         <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -24,9 +27,12 @@
                         <action selector="photoAction:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="oSV-Qu-IXG"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9h-Cj-Qte">
-                    <rect key="frame" x="94" y="8" width="37" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9h-Cj-Qte">
+                    <rect key="frame" x="75" y="5" width="50" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="fwY-Md-TuR"/>
+                        <constraint firstAttribute="width" constant="50" id="zNT-7e-BCh"/>
+                    </constraints>
                     <state key="normal" title="摄像">
                         <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -35,6 +41,12 @@
                     </connections>
                 </button>
             </subviews>
+            <constraints>
+                <constraint firstItem="G9h-Cj-Qte" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" constant="-60" id="CK4-Qb-Vqm"/>
+                <constraint firstItem="g0A-sf-v56" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="dkY-bA-gLK"/>
+                <constraint firstItem="g0A-sf-v56" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" constant="60" id="qP2-ev-NwB"/>
+                <constraint firstItem="G9h-Cj-Qte" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="vMA-0V-egp"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <point key="canvasLocation" x="139" y="120"/>
         </collectionReusableView>

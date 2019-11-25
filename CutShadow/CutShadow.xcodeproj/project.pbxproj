@@ -43,6 +43,10 @@
 		3109743923329011002B20D9 /* HomeVC+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3109743823329011002B20D9 /* HomeVC+Menu.swift */; };
 		3109743D233292E1002B20D9 /* CSSelectPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3109743B233292E1002B20D9 /* CSSelectPicVC.swift */; };
 		3109743E233292E1002B20D9 /* CSSelectPicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3109743C233292E1002B20D9 /* CSSelectPicVC.xib */; };
+		310BBD83238C05A7007AE1FC /* FilterTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BBD82238C05A7007AE1FC /* FilterTypeView.swift */; };
+		310BBD85238C05B6007AE1FC /* FilterTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310BBD84238C05B6007AE1FC /* FilterTypeView.xib */; };
+		310BBD88238C0861007AE1FC /* FilterTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BBD86238C0861007AE1FC /* FilterTypeCell.swift */; };
+		310BBD89238C0861007AE1FC /* FilterTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310BBD87238C0861007AE1FC /* FilterTypeCell.xib */; };
 		312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */; };
 		312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */; };
 		312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */; };
@@ -94,6 +98,10 @@
 		3109743823329011002B20D9 /* HomeVC+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+Menu.swift"; sourceTree = "<group>"; };
 		3109743B233292E1002B20D9 /* CSSelectPicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSelectPicVC.swift; sourceTree = "<group>"; };
 		3109743C233292E1002B20D9 /* CSSelectPicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicVC.xib; sourceTree = "<group>"; };
+		310BBD82238C05A7007AE1FC /* FilterTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeView.swift; sourceTree = "<group>"; };
+		310BBD84238C05B6007AE1FC /* FilterTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTypeView.xib; sourceTree = "<group>"; };
+		310BBD86238C0861007AE1FC /* FilterTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeCell.swift; sourceTree = "<group>"; };
+		310BBD87238C0861007AE1FC /* FilterTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTypeCell.xib; sourceTree = "<group>"; };
 		312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEditor.framework; path = Carthage/Build/iOS/PixelEditor.framework; sourceTree = "<group>"; };
 		312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEngine.framework; path = Carthage/Build/iOS/PixelEngine.framework; sourceTree = "<group>"; };
 		312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
@@ -440,6 +448,7 @@
 		3109743A23329276002B20D9 /* PicThing */ = {
 			isa = PBXGroup;
 			children = (
+				310BBD81238C054B007AE1FC /* FilterSelect */,
 				3195EDCF238A62C3003351E6 /* TakeVideo */,
 				3195EDCE238A62A2003351E6 /* TakePhoto */,
 				191ABE962335F06A00E10E25 /* photos */,
@@ -448,6 +457,17 @@
 				3109743C233292E1002B20D9 /* CSSelectPicVC.xib */,
 			);
 			path = PicThing;
+			sourceTree = "<group>";
+		};
+		310BBD81238C054B007AE1FC /* FilterSelect */ = {
+			isa = PBXGroup;
+			children = (
+				310BBD82238C05A7007AE1FC /* FilterTypeView.swift */,
+				310BBD84238C05B6007AE1FC /* FilterTypeView.xib */,
+				310BBD86238C0861007AE1FC /* FilterTypeCell.swift */,
+				310BBD87238C0861007AE1FC /* FilterTypeCell.xib */,
+			);
+			path = FilterSelect;
 			sourceTree = "<group>";
 		};
 		312F6F9622EDF8A000F5C8F6 /* Frameworks */ = {
@@ -739,8 +759,10 @@
 				19213C8B22EBF58800CB8FC9 /* LaunchScreen.storyboard in Resources */,
 				3109743E233292E1002B20D9 /* CSSelectPicVC.xib in Resources */,
 				1967919F22EC229A00AB9522 /* HomeVC.xib in Resources */,
+				310BBD85238C05B6007AE1FC /* FilterTypeView.xib in Resources */,
 				1938049A233356E3006CC711 /* CSSelectPicHeadView.xib in Resources */,
 				1938049E23335732006CC711 /* CSSelectPicCell.xib in Resources */,
+				310BBD89238C0861007AE1FC /* FilterTypeCell.xib in Resources */,
 				19213C8822EBF58800CB8FC9 /* Assets.xcassets in Resources */,
 				19213C8622EBF58700CB8FC9 /* Main.storyboard in Resources */,
 			);
@@ -804,7 +826,9 @@
 				1967918922EC215B00AB9522 /* DateExtenstion.swift in Sources */,
 				1967918C22EC215B00AB9522 /* ViewExtension.swift in Sources */,
 				1967919722EC217F00AB9522 /* FCFTabBarController.swift in Sources */,
+				310BBD83238C05A7007AE1FC /* FilterTypeView.swift in Sources */,
 				19213C8122EBF58700CB8FC9 /* AppDelegate.swift in Sources */,
+				310BBD88238C0861007AE1FC /* FilterTypeCell.swift in Sources */,
 				1967918122EC215B00AB9522 /* UIButtonExtension.swift in Sources */,
 				1967918A22EC215B00AB9522 /* CellExtension.swift in Sources */,
 				3109743D233292E1002B20D9 /* CSSelectPicVC.swift in Sources */,
