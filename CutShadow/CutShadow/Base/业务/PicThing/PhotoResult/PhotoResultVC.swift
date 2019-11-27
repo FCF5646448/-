@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import SnapKit
 
 class PhotoResultVC: FCFBaseViewController {
 
@@ -89,6 +90,17 @@ extension PhotoResultVC {
         magicBtn.addTarget(self, action: #selector(magicBtnAction), for: .touchUpInside)
         self.view.addSubview(magicBtn)
         
+        let addTextBtn = UIButton(type: .custom)
+        addTextBtn.setTitle("添加说明", for: .normal)
+        addTextBtn.addTarget(self, action: #selector(addTextBtnAction), for: .touchUpInside)
+        self.view.addSubview(addTextBtn)
+        addTextBtn.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.view)
+            make.height.equalTo(64)
+            make.width.equalTo(32)
+            make.right.equalTo(self.view.right).offset(-20)
+        }
+        
         self.view.addSubview(self.filterSelectV)
     }
 }
@@ -126,6 +138,11 @@ extension PhotoResultVC {
         
     }
     
+    @objc func addTextBtnAction() {
+        
+    }
+    
+
     @objc func magicBtnAction(_ sender: UIButton) {
         self.filterSelectV.showPop()
     }
