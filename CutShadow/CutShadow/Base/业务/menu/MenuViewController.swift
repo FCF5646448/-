@@ -18,6 +18,8 @@ class MenuViewController: UITableViewController {
         //创建一个重用的单元格
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
         self.tableView.separatorStyle = .none
+        self.tableView.backgroundColor = .clear
+        self.view.backgroundColor = UIColor.clear
     }
     
     // 分区数
@@ -35,6 +37,8 @@ class MenuViewController: UITableViewController {
         -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
             cell.textLabel?.text = "菜单\(indexPath.row + 1)"
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = UIColor.clear
             return cell
     }
 }

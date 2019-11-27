@@ -55,7 +55,7 @@ extension HomeVC {
         menu.completionCurve = .easeIn
         
         // 阻止状态栏背景变黑
-        menu.statusBarEndAlpha = 0.0 //为0 statusBar 背景色为clear
+        menu.statusBarEndAlpha = 1.0 //为0 statusBar 背景色为clear
         
         // 将侧栏菜单初始fade值设为0.5
         menu.presentationStyle.presentingParallaxStrength = CGSize(width: kScreenWidth*0.8, height: 0)
