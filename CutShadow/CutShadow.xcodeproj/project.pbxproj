@@ -47,6 +47,8 @@
 		310BBD85238C05B6007AE1FC /* FilterTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310BBD84238C05B6007AE1FC /* FilterTypeView.xib */; };
 		310BBD88238C0861007AE1FC /* FilterTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BBD86238C0861007AE1FC /* FilterTypeCell.swift */; };
 		310BBD89238C0861007AE1FC /* FilterTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310BBD87238C0861007AE1FC /* FilterTypeCell.xib */; };
+		311DE2D7238D51F900CA4A8D /* PhotoResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DE2D5238D51F900CA4A8D /* PhotoResultVC.swift */; };
+		311DE2D8238D51F900CA4A8D /* PhotoResultVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 311DE2D6238D51F900CA4A8D /* PhotoResultVC.xib */; };
 		312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */; };
 		312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */; };
 		312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */; };
@@ -102,6 +104,8 @@
 		310BBD84238C05B6007AE1FC /* FilterTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTypeView.xib; sourceTree = "<group>"; };
 		310BBD86238C0861007AE1FC /* FilterTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeCell.swift; sourceTree = "<group>"; };
 		310BBD87238C0861007AE1FC /* FilterTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTypeCell.xib; sourceTree = "<group>"; };
+		311DE2D5238D51F900CA4A8D /* PhotoResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResultVC.swift; sourceTree = "<group>"; };
+		311DE2D6238D51F900CA4A8D /* PhotoResultVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoResultVC.xib; sourceTree = "<group>"; };
 		312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEditor.framework; path = Carthage/Build/iOS/PixelEditor.framework; sourceTree = "<group>"; };
 		312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixelEngine.framework; path = Carthage/Build/iOS/PixelEngine.framework; sourceTree = "<group>"; };
 		312F6F9922EDF8A000F5C8F6 /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 		3109743A23329276002B20D9 /* PicThing */ = {
 			isa = PBXGroup;
 			children = (
+				311DE2D4238D50AC00CA4A8D /* PhotoResult */,
 				310BBD81238C054B007AE1FC /* FilterSelect */,
 				3195EDCF238A62C3003351E6 /* TakeVideo */,
 				3195EDCE238A62A2003351E6 /* TakePhoto */,
@@ -468,6 +473,15 @@
 				310BBD87238C0861007AE1FC /* FilterTypeCell.xib */,
 			);
 			path = FilterSelect;
+			sourceTree = "<group>";
+		};
+		311DE2D4238D50AC00CA4A8D /* PhotoResult */ = {
+			isa = PBXGroup;
+			children = (
+				311DE2D5238D51F900CA4A8D /* PhotoResultVC.swift */,
+				311DE2D6238D51F900CA4A8D /* PhotoResultVC.xib */,
+			);
+			path = PhotoResult;
 			sourceTree = "<group>";
 		};
 		312F6F9622EDF8A000F5C8F6 /* Frameworks */ = {
@@ -758,6 +772,7 @@
 				3195EDD8238A6D18003351E6 /* TakePhotoVC.xib in Resources */,
 				19213C8B22EBF58800CB8FC9 /* LaunchScreen.storyboard in Resources */,
 				3109743E233292E1002B20D9 /* CSSelectPicVC.xib in Resources */,
+				311DE2D8238D51F900CA4A8D /* PhotoResultVC.xib in Resources */,
 				1967919F22EC229A00AB9522 /* HomeVC.xib in Resources */,
 				310BBD85238C05B6007AE1FC /* FilterTypeView.xib in Resources */,
 				1938049A233356E3006CC711 /* CSSelectPicHeadView.xib in Resources */,
@@ -812,6 +827,7 @@
 				1967918522EC215B00AB9522 /* UIColorExtension.swift in Sources */,
 				1967918E22EC215B00AB9522 /* StringExtension.swift in Sources */,
 				1967919E22EC229A00AB9522 /* HomeVC.swift in Sources */,
+				311DE2D7238D51F900CA4A8D /* PhotoResultVC.swift in Sources */,
 				1967918322EC215B00AB9522 /* TableView+CollectionView+Extension.swift in Sources */,
 				1967918422EC215B00AB9522 /* UIImageViewExtension.swift in Sources */,
 				1967918822EC215B00AB9522 /* ArrayExtension.swift in Sources */,

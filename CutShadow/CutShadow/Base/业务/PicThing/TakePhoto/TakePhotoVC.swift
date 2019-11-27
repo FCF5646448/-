@@ -134,7 +134,12 @@ extension TakePhotoVC {
                 weakself?.camera.pauseCapture()
                 weakself?.isPause = true
                 if let imgData:Data = image, let img = UIImage(data: imgData) {
-                    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+                    
+                    let vc = PhotoResultVC(frame: self.view.frame, img: img)
+                    self.view.addSubview(vc.view)
+                    self.addChild(vc)
+                    //
+//                    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
                 }
             }
             return
