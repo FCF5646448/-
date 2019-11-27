@@ -41,11 +41,6 @@ extension HomeVC {
 
 extension HomeVC {
     @objc func addBtnAction() {
-        let vc = FCFNavigationController(rootViewController: CSSelectPicVC())
-        vc.modalPresentationStyle = .fullScreen
-        navigationController?.present(vc, animated: true, completion: {
-            
-        })
-        
+        navigationController?.pushViewController(CSSelectPicVC(), animated: true)
     }
 }

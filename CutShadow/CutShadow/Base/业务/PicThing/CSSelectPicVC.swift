@@ -22,7 +22,6 @@ class CSSelectPicVC: FCFBaseViewController {
     let collectItemW:CGFloat = (kScreenWidth - 20) / 3.0
     
     
-//    var dataSource:[String] = ["","","","","","","","","",""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +52,6 @@ extension CSSelectPicVC {
                 }
             }
         }
-        
-        self.customReturnBtn()
-        
-        
-    }
-    
-    override func customReturnBtnClicked() {
-        super.customReturnBtnClicked()
-        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     //重置缓存
@@ -143,17 +133,15 @@ extension CSSelectPicVC : UICollectionViewDataSource {
 extension CSSelectPicVC : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if let cell:CSSelectPicCell = collectionView.cellForItem(at: indexPath) as? CSSelectPicCell,let img = cell.img.image {
+            let vc = PhotoResultVC(frame: self.view.frame, img: img)
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: false) {
+                
+            }
+        }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        let origin = self.dataSource[sourceIndexPath.row]
-//        self.dataSource.remove(at: sourceIndexPath.row)
-//        self.dataSource.insert(origin, at: destinationIndexPath.row)
-//    }
 }
 
 
@@ -161,6 +149,7 @@ extension CSSelectPicVC : CSSelectPicHeadViewDelegate {
     func csselectPicHeadAction(type:SelectActionType) {
         switch type {
         case .takePhoto:
+            
             let vc = TakePhotoVC()
             vc.modalPresentationStyle = .fullScreen
             self.view.makeToastActivity(.center)

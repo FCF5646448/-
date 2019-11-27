@@ -65,7 +65,7 @@ extension PhotoManager {
     //转化处理获取到的相簿
     fileprivate func convertCollection(collection:PHFetchResult<PHAssetCollection>){
         for i in 0..<collection.count{
-            //获取出但前相簿内的图片
+            //获取出但前相簿内的图片 （只获取图片）
             let resultsOptions = PHFetchOptions()
             resultsOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
                                                                ascending: false)]

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FilterTypeViewDelegate:NSObjectProtocol {
-    func filterTypeView(didSelect fliter:GPUImageFilter)
+    func filterTypeView(didSelect index:Int)
 }
 
 class FilterTypeView: UIView {
@@ -127,35 +127,33 @@ extension FilterTypeView : UICollectionViewDataSource {
 extension FilterTypeView : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if  indexPath.row < dataSource.count {
-            self.delegate?.filterTypeView(didSelect: filter(tag: indexPath.row))
+            self.delegate?.filterTypeView(didSelect: indexPath.row)
         }
     }
 }
 
-extension FilterTypeView {
-    func filter(tag: Int) -> GPUImageFilter {
-        
-        switch tag {
-        case 0:
-            return GPUImageNormalBlendFilter()
-        case 1:
-            return GPUImageSepiaFilter()
-        case 2:
-            return GPUImageColorInvertFilter()
-        case 3:
-            return GPUImageDilationFilter()
-        case 4:
-            return GPUImageEmbossFilter()
-        case 5:
-            return GPUImageHazeFilter()
-        case 6:
-            return GPUImageToonFilter()
-        case 7:
-            return GPUImageBulgeDistortionFilter()
-        case 8:
-            return GPUImageGlassSphereFilter()
-        default:
-            return GPUImageGrayscaleFilter()
-        }
+func filterFunc(tag: Int) -> GPUImageFilter {
+    
+    switch tag {
+    case 0:
+        return GPUImageNormalBlendFilter()
+    case 1:
+        return GPUImageSepiaFilter()
+    case 2:
+        return GPUImageColorInvertFilter()
+    case 3:
+        return GPUImageDilationFilter()
+    case 4:
+        return GPUImageEmbossFilter()
+    case 5:
+        return GPUImageHazeFilter()
+    case 6:
+        return GPUImageToonFilter()
+    case 7:
+        return GPUImageBulgeDistortionFilter()
+    case 8:
+        return GPUImageGlassSphereFilter()
+    default:
+        return GPUImageGrayscaleFilter()
     }
 }

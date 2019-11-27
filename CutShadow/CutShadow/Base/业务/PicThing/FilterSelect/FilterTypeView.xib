@@ -28,13 +28,13 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="D4d-38-OyV"/>
                     </connections>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-vM-qBP">
-                    <rect key="frame" x="400" y="0.0" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-vM-qBP">
+                    <rect key="frame" x="410" y="10" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="I1N-zH-tzU"/>
-                        <constraint firstAttribute="height" constant="30" id="m0A-Ct-13E"/>
+                        <constraint firstAttribute="width" constant="20" id="I1N-zH-tzU"/>
+                        <constraint firstAttribute="height" constant="20" id="m0A-Ct-13E"/>
                     </constraints>
-                    <state key="normal" title="X"/>
+                    <state key="normal" image="close2"/>
                     <connections>
                         <action selector="closeBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Pze-IT-tVt"/>
                     </connections>
@@ -42,7 +42,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="TgY-vM-qBP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ECa-V4-gZQ"/>
                 <constraint firstAttribute="bottom" secondItem="EIx-cn-HrG" secondAttribute="bottom" id="cFA-Ts-F9U"/>
                 <constraint firstAttribute="trailing" secondItem="TgY-vM-qBP" secondAttribute="trailing" constant="8" id="exe-1p-lLU"/>
                 <constraint firstItem="EIx-cn-HrG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="hFc-th-YqZ"/>
@@ -58,4 +57,7 @@
             <point key="canvasLocation" x="155.07246376811597" y="369.64285714285711"/>
         </view>
     </objects>
+    <resources>
+        <image name="close2" width="32" height="32"/>
+    </resources>
 </document>

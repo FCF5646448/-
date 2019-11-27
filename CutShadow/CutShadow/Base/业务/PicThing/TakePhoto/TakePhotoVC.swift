@@ -70,23 +70,29 @@ extension TakePhotoVC {
         
         //
         let close = UIButton(type: .custom)
-        close.frame = CGRect(x: 20, y: 20, width: 64, height: 64)
-        close.setTitle(" X ", for: .normal)
+        close.frame = CGRect(x: 10, y: 20, width: 44, height: 44)
+        close.setImage(UIImage(named: "close"), for: .normal)
         close.setTitleColor(UIColor.red, for: .normal)
         close.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
         self.view.addSubview(close)
+//        close.backgroundColor = UIColor.white
+//        close.layer.cornerRadius = 22
+//        close.layer.masksToBounds = true
         
         //
         let cameraBtn = UIButton(type: .custom)
-        cameraBtn.frame = CGRect(x: kScreenWidth - 64 - 20, y: 200, width: 64, height: 64)
-        cameraBtn.setTitle("镜头", for: .normal)
+        cameraBtn.frame = CGRect(x: kScreenWidth - 44, y: 200, width: 44, height: 44)
+        cameraBtn.setImage(UIImage(named: "switch"), for: .normal)
         cameraBtn.setTitleColor(UIColor.red, for: .normal)
         cameraBtn.addTarget(self, action: #selector(switchCameraAction), for: .touchUpInside)
         self.view.addSubview(cameraBtn)
+//        cameraBtn.backgroundColor = UIColor.white
+//        cameraBtn.layer.cornerRadius = 22
+//        cameraBtn.layer.masksToBounds = true
         
         //比例
         let scaleBtn = UIButton(type: .custom)
-        scaleBtn.frame = CGRect(x: cameraBtn.left, y: cameraBtn.bottom + 20, width: 64, height: 64)
+        scaleBtn.frame = CGRect(x: cameraBtn.left-10, y: cameraBtn.bottom + 20, width: 64, height: 64)
         scaleBtn.setTitle("16:9", for: .normal)
         scaleBtn.setTitleColor(UIColor.red, for: .normal)
         scaleBtn.addTarget(self, action: #selector(switchScaleAction), for: .touchUpInside)
@@ -95,19 +101,27 @@ extension TakePhotoVC {
         
         
         let takeBtn = UIButton(type: .custom)
-        takeBtn.frame = CGRect(x: kScreenWidth * 0.5 - 42, y: kScreenHeight - 104, width: 84, height: 84)
+        takeBtn.frame = CGRect(x: kScreenWidth * 0.5 - 42, y: kScreenHeight - 104, width: 64, height: 64)
         takeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        takeBtn.setTitle("拍照", for: .normal)
+        takeBtn.setImage(UIImage(named: "photo"), for: .normal)
         takeBtn.setTitleColor(UIColor.red, for: .normal)
         takeBtn.addTarget(self, action: #selector(takePhotoAction), for: .touchUpInside)
         self.view.addSubview(takeBtn)
+        takeBtn.backgroundColor = UIColor.white
+        takeBtn.layer.cornerRadius = 32
+        takeBtn.layer.masksToBounds = true
+        
         
         let magicBtn = UIButton(type: .custom)
-        magicBtn.frame = CGRect(x: takeBtn.right + 80, y: takeBtn.top+10, width: 64, height: 64)
-        magicBtn.setTitle("魔术棒", for: .normal)
+        magicBtn.frame = CGRect(x: takeBtn.right + 80, y: takeBtn.top+10, width: 44, height: 44)
+        magicBtn.setImage(UIImage(named: "magic"), for: .normal)
         magicBtn.setTitleColor(.red, for: .normal)
         magicBtn.addTarget(self, action: #selector(magicBtnAction), for: .touchUpInside)
         self.view.addSubview(magicBtn)
+//        magicBtn.backgroundColor = UIColor.white
+//        magicBtn.layer.cornerRadius = 22
+//        magicBtn.layer.masksToBounds = true
+        
         
         self.view.addSubview(self.filterSelectV)
     }
@@ -156,14 +170,16 @@ extension TakePhotoVC {
 
 //MARK: FliterDelegate
 extension TakePhotoVC : FilterTypeViewDelegate {
-    func filterTypeView(didSelect fliter:GPUImageFilter) {
-        if fliter.isKind(of: GPUImageNormalBlendFilter.classForCoder()) {
+    func filterTypeView(didSelect index:Int) {
+        let input = filterFunc(tag: index)
+        
+        if input.isKind(of: GPUImageNormalBlendFilter.classForCoder()) {
             camera.removeAllTargets()
             //不要滤镜
             camera.addTarget((self.view as! GPUImageInput))
             
         }else {
-            self.filter = fliter
+            self.filter = input
             camera.removeAllTargets()
             camera.addTarget(self.filter)
             filter.addTarget((self.view as! GPUImageInput))
