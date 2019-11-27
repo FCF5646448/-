@@ -1,2 +1,3 @@
 github "jonkykong/SideMenu" "master"
 github "muukii/Pixel"
+github "scalessec/Toast-Swift" ~> 5.0.0

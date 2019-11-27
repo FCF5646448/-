@@ -17,6 +17,10 @@
 		1938049A233356E3006CC711 /* CSSelectPicHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19380498233356E3006CC711 /* CSSelectPicHeadView.xib */; };
 		1938049D23335732006CC711 /* CSSelectPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938049B23335732006CC711 /* CSSelectPicCell.swift */; };
 		1938049E23335732006CC711 /* CSSelectPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1938049C23335732006CC711 /* CSSelectPicCell.xib */; };
+		193A4A48238E80310099C7EE /* TransitionPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */; };
+		193A4A49238E80310099C7EE /* TransitionPatch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		193A4A4C238E80310099C7EE /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193A4A4B238E80310099C7EE /* ToastSwiftFramework.framework */; };
+		193A4A4D238E80310099C7EE /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 193A4A4B238E80310099C7EE /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1967918122EC215B00AB9522 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967916C22EC215A00AB9522 /* UIButtonExtension.swift */; };
 		1967918222EC215B00AB9522 /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967916D22EC215A00AB9522 /* DeviceExtension.swift */; };
 		1967918322EC215B00AB9522 /* TableView+CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967916E22EC215A00AB9522 /* TableView+CollectionView+Extension.swift */; };
@@ -61,6 +65,21 @@
 		3195F10A238AE6BF003351E6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3195F109238AE6BF003351E6 /* AVKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		193A4A4A238E80310099C7EE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				193A4A49238E80310099C7EE /* TransitionPatch.framework in Embed Frameworks */,
+				193A4A4D238E80310099C7EE /* ToastSwiftFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		191ABE972335F08700E10E25 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		19213C7D22EBF58700CB8FC9 /* CutShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +93,7 @@
 		19380498233356E3006CC711 /* CSSelectPicHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicHeadView.xib; sourceTree = "<group>"; };
 		1938049B23335732006CC711 /* CSSelectPicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSelectPicCell.swift; sourceTree = "<group>"; };
 		1938049C23335732006CC711 /* CSSelectPicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicCell.xib; sourceTree = "<group>"; };
+		193A4A4B238E80310099C7EE /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		1967916C22EC215A00AB9522 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		1967916D22EC215A00AB9522 /* DeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceExtension.swift; sourceTree = "<group>"; };
 		1967916E22EC215A00AB9522 /* TableView+CollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+CollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -296,12 +316,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				193A4A48238E80310099C7EE /* TransitionPatch.framework in Frameworks */,
 				3195F10A238AE6BF003351E6 /* AVKit.framework in Frameworks */,
 				312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */,
 				312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */,
 				312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */,
 				3195F108238AE69C003351E6 /* libGPUImage.a in Frameworks */,
 				312F6F9E22EDF8A100F5C8F6 /* TransitionPatch.framework in Frameworks */,
+				193A4A4C238E80310099C7EE /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,9 +474,9 @@
 		3109743A23329276002B20D9 /* PicThing */ = {
 			isa = PBXGroup;
 			children = (
-				311DE2D4238D50AC00CA4A8D /* PhotoResult */,
 				310BBD81238C054B007AE1FC /* FilterSelect */,
 				3195EDCF238A62C3003351E6 /* TakeVideo */,
+				311DE2D4238D50AC00CA4A8D /* PhotoResult */,
 				3195EDCE238A62A2003351E6 /* TakePhoto */,
 				191ABE962335F06A00E10E25 /* photos */,
 				19380496233355E5006CC711 /* views */,
@@ -487,6 +509,7 @@
 		312F6F9622EDF8A000F5C8F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				193A4A4B238E80310099C7EE /* ToastSwiftFramework.framework */,
 				3195F109238AE6BF003351E6 /* AVKit.framework */,
 				312F6F9722EDF8A000F5C8F6 /* PixelEditor.framework */,
 				312F6F9822EDF8A000F5C8F6 /* PixelEngine.framework */,
@@ -720,6 +743,7 @@
 				19213C7A22EBF58700CB8FC9 /* Frameworks */,
 				19213C7B22EBF58700CB8FC9 /* Resources */,
 				312F6F9522EDF86800F5C8F6 /* ShellScript */,
+				193A4A4A238E80310099C7EE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1017,7 +1041,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CutShadow/CutShadow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1048,7 +1072,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fcf.CutShadow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CutShadow/CutShadow-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

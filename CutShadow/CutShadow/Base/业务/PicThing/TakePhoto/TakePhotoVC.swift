@@ -51,6 +51,7 @@ class TakePhotoVC: FCFBaseViewController {
     }
     
     deinit {
+        self.camera.stopCapture()
         print("TakePhotoVC deinit ☠️☠️☠️☠️☠️")
     }
     
@@ -115,7 +116,6 @@ extension TakePhotoVC {
 //MARK: Action
 extension TakePhotoVC {
     @objc func closeAction() {
-        self.camera.stopCapture()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -136,15 +136,14 @@ extension TakePhotoVC {
                 if let imgData:Data = image, let img = UIImage(data: imgData) {
                     
                     let vc = PhotoResultVC(frame: self.view.frame, img: img)
-                    self.view.addSubview(vc.view)
-                    self.addChild(vc)
-                    //
-//                    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: false) {
+                        weakself?.camera.resumeCameraCapture()
+                    }
                 }
             }
             return
         }
-        
         self.camera.resumeCameraCapture()
         isPause = false
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class PhotoResultVC: FCFBaseViewController {
 
@@ -43,20 +44,46 @@ class PhotoResultVC: FCFBaseViewController {
         self.imageV.image = img
     }
 
+    //隐藏状态栏
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
 extension PhotoResultVC {
     func initUI() {
-        let takeBtn = UIButton(type: .custom)
-        takeBtn.frame = CGRect(x: kScreenWidth * 0.5 - 42, y: kScreenHeight - 104, width: 84, height: 84)
-        takeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        takeBtn.setTitle("保存", for: .normal)
-        takeBtn.setTitleColor(UIColor.red, for: .normal)
-        takeBtn.addTarget(self, action: #selector(savePhotoToAlbum), for: .touchUpInside)
-        self.view.addSubview(takeBtn)
+        //
+        let close = UIButton(type: .custom)
+        close.frame = CGRect(x: 20, y: 10, width: 64, height: 64)
+        close.setTitle(" X ", for: .normal)
+        close.setTitleColor(UIColor.red, for: .normal)
+        close.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        self.view.addSubview(close)
+        
+        let download = UIButton(type: .custom)
+        download.frame = CGRect(x: kScreenWidth - 20 - 64, y: 10, width: 64, height: 64)
+        download.setTitle("下载", for: .normal)
+        download.setTitleColor(UIColor.red, for: .normal)
+        download.addTarget(self, action: #selector(downloadAction), for: .touchUpInside)
+        self.view.addSubview(download)
+        
+        let saveBtn = UIButton(type: .custom)
+        saveBtn.frame = CGRect(x: kScreenWidth * 0.5 - 42, y: kScreenHeight - 104, width: 84, height: 84)
+        saveBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        saveBtn.setTitle("保存", for: .normal)
+        saveBtn.setTitleColor(UIColor.red, for: .normal)
+        saveBtn.addTarget(self, action: #selector(savePhotoLocal), for: .touchUpInside)
+        self.view.addSubview(saveBtn)
+        
+        let backBtn = UIButton(type: .custom)
+        backBtn.frame = CGRect(x: 20, y: saveBtn.top+10, width: 64, height: 64)
+        backBtn.setTitle("返回", for: .normal)
+        backBtn.setTitleColor(.red, for: .normal)
+        backBtn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
+        self.view.addSubview(backBtn)
         
         let magicBtn = UIButton(type: .custom)
-        magicBtn.frame = CGRect(x: takeBtn.right + 80, y: takeBtn.top+10, width: 64, height: 64)
+        magicBtn.frame = CGRect(x: saveBtn.right + 80, y: saveBtn.top+10, width: 64, height: 64)
         magicBtn.setTitle("魔术棒", for: .normal)
         magicBtn.setTitleColor(.red, for: .normal)
         magicBtn.addTarget(self, action: #selector(magicBtnAction), for: .touchUpInside)
@@ -67,8 +94,36 @@ extension PhotoResultVC {
 }
 
 extension PhotoResultVC {
-    @objc func savePhotoToAlbum() {
-        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+    @objc func closeAction() {
+        //返回到选择相片页
+        var rootVC = self.presentingViewController
+        while !rootVC!.isKind(of: CSSelectPicVC.classForCoder()) {
+            let parent = rootVC?.presentingViewController
+            rootVC = parent
+        }
+        rootVC?.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func downloadAction() {
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAsset(from: self.img)
+        }) { (isSuccess: Bool, error: Error?) in
+            if isSuccess {
+                print("下载到系统相册成功!")
+            } else{
+                print("下载到系统相册失败：", error!.localizedDescription)
+            }
+        }
+    }
+    
+    @objc func backBtnAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //保存图片到app
+    @objc func savePhotoLocal() {
+        //
+        
     }
     
     @objc func magicBtnAction(_ sender: UIButton) {
@@ -95,8 +150,7 @@ extension PhotoResultVC {
 //MARK: FliterDelegate
 extension PhotoResultVC : FilterTypeViewDelegate {
     func filterTypeView(didSelect fliter:GPUImageFilter) {
-        
-        let filter = GPUImageSepiaFilter()
+//        let filter = GPUImageSepiaFilter()
         let img = processImage(filter)
         self.imageV.image = img
         self.img = img

@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import ToastSwiftFramework
 
 /*选取图片页、摄像和拍照入口*/
 class CSSelectPicVC: FCFBaseViewController {
@@ -162,7 +163,11 @@ extension CSSelectPicVC : CSSelectPicHeadViewDelegate {
         case .takePhoto:
             let vc = TakePhotoVC()
             vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.present(vc, animated: true, completion: nil)
+            self.view.makeToastActivity(.center)
+            weak var weakself = self
+            self.navigationController?.present(vc, animated: true, completion: {
+                weakself?.view.hideToastActivity()
+            })
             break
         case .takeVideo:
             
