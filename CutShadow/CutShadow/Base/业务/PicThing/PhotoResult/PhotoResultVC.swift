@@ -141,7 +141,7 @@ extension PhotoResultVC {
     //保存图片到app
     @objc func savePhotoLocal() {
         //
-        
+        DownloadTool.share.saveImage(img: self.img)
     }
     
     @objc func addTextBtnAction() {

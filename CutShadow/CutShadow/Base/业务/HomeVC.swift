@@ -8,13 +8,48 @@
 
 import UIKit
 import SideMenu
+import RealmSwift
 
 class HomeVC: FCFBaseViewController {
 
+    lazy var collection:UICollectionView = {
+            let flowLayout = FCFMasonryViewLayout()
+            flowLayout.delegate = self
+        
+            //flowLayout 一定要放在初始化方法中，否则会报错。
+            let collectionview = UICollectionView(frame: self.view.bounds, collectionViewLayout: flowLayout)
+            collectionview.backgroundColor = UIColor.white
+            collectionview.register(UINib.init(nibName: "MKPhotoCollectionCell", bundle: nil), forCellWithReuseIdentifier: "MKPhotoCollectionCell")
+            collectionview.delegate = self
+            collectionview.dataSource = self
+            
+            return collectionview
+    }()
+    
+    lazy var hintLabel:UILabel = {
+           let lb = UILabel(frame: CGRect(x: 0, y: (HEIGHT-60)/2.0 , width: WIDTH, height: 60))
+           lb.text = "当前没有任何记录哦\n养成好的记账习惯很重要哦😁"
+           lb.numberOfLines = 0
+           lb.textAlignment = .center
+           lb.font = UIFont.systemFont(ofSize: 14)
+           lb.textColor = UIColor.hex(0x8a8a8a)
+           return lb
+       }()
+    
+    var photoList:[PicModel] = []
+    var photosCaches:[String:UIImage] = [:] //缓存渲染出来的图片
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchData()
     }
 
 }
@@ -23,6 +58,8 @@ extension HomeVC {
     func initUI(){
         
         settingMenu()
+        
+        self.view.addSubview(self.collection)
         
         let addBtn = UIButton(type: .custom)
         addBtn.setImage(UIImage(named: "pic_add"), for: .normal)

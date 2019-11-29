@@ -13,10 +13,20 @@
 		19213C8622EBF58700CB8FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19213C8422EBF58700CB8FC9 /* Main.storyboard */; };
 		19213C8822EBF58800CB8FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19213C8722EBF58800CB8FC9 /* Assets.xcassets */; };
 		19213C8B22EBF58800CB8FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19213C8922EBF58800CB8FC9 /* LaunchScreen.storyboard */; };
+		192848FE2390BC3E00EBB4A5 /* MKPhotoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192848FB2390BC3D00EBB4A5 /* MKPhotoCollectionCell.xib */; };
+		192848FF2390BC3E00EBB4A5 /* MKPhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192848FC2390BC3D00EBB4A5 /* MKPhotoCollectionCell.swift */; };
+		192849002390BC3E00EBB4A5 /* FCFMasonryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192848FD2390BC3D00EBB4A5 /* FCFMasonryViewLayout.swift */; };
+		192849022390BC9300EBB4A5 /* HomeVC+CollectV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192849012390BC9300EBB4A5 /* HomeVC+CollectV.swift */; };
+		192849042390C63600EBB4A5 /* PicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192849032390C63600EBB4A5 /* PicModel.swift */; };
+		192849062390CBA400EBB4A5 /* DownloadTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192849052390CBA400EBB4A5 /* DownloadTool.swift */; };
 		19380499233356E3006CC711 /* CSSelectPicHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19380497233356E3006CC711 /* CSSelectPicHeadView.swift */; };
 		1938049A233356E3006CC711 /* CSSelectPicHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19380498233356E3006CC711 /* CSSelectPicHeadView.xib */; };
 		1938049D23335732006CC711 /* CSSelectPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938049B23335732006CC711 /* CSSelectPicCell.swift */; };
 		1938049E23335732006CC711 /* CSSelectPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1938049C23335732006CC711 /* CSSelectPicCell.xib */; };
+		19399514238F7B47007DD326 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19399513238F7B46007DD326 /* RealmSwift.framework */; };
+		19399515238F7B47007DD326 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19399513238F7B46007DD326 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		19399517238F7B6D007DD326 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19399516238F7B6D007DD326 /* Realm.framework */; };
+		19399518238F7B6D007DD326 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19399516238F7B6D007DD326 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		193A4A48238E80310099C7EE /* TransitionPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */; };
 		193A4A49238E80310099C7EE /* TransitionPatch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 312F6F9A22EDF8A000F5C8F6 /* TransitionPatch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		193A4A4C238E80310099C7EE /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193A4A4B238E80310099C7EE /* ToastSwiftFramework.framework */; };
@@ -76,7 +86,9 @@
 			files = (
 				193A4A50238E84350099C7EE /* SnapKit.framework in Embed Frameworks */,
 				193A4A49238E80310099C7EE /* TransitionPatch.framework in Embed Frameworks */,
+				19399515238F7B47007DD326 /* RealmSwift.framework in Embed Frameworks */,
 				193A4A4D238E80310099C7EE /* ToastSwiftFramework.framework in Embed Frameworks */,
+				19399518238F7B6D007DD326 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,17 +97,25 @@
 
 /* Begin PBXFileReference section */
 		191ABE972335F08700E10E25 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
-		19213C7D22EBF58700CB8FC9 /* CutShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19213C7D22EBF58700CB8FC9 /* 剪影.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "剪影.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19213C8022EBF58700CB8FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19213C8222EBF58700CB8FC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19213C8522EBF58700CB8FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19213C8722EBF58800CB8FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19213C8A22EBF58800CB8FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19213C8C22EBF58800CB8FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192848FB2390BC3D00EBB4A5 /* MKPhotoCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKPhotoCollectionCell.xib; sourceTree = "<group>"; };
+		192848FC2390BC3D00EBB4A5 /* MKPhotoCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKPhotoCollectionCell.swift; sourceTree = "<group>"; };
+		192848FD2390BC3D00EBB4A5 /* FCFMasonryViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCFMasonryViewLayout.swift; sourceTree = "<group>"; };
+		192849012390BC9300EBB4A5 /* HomeVC+CollectV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectV.swift"; sourceTree = "<group>"; };
+		192849032390C63600EBB4A5 /* PicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicModel.swift; sourceTree = "<group>"; };
+		192849052390CBA400EBB4A5 /* DownloadTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTool.swift; sourceTree = "<group>"; };
 		19380497233356E3006CC711 /* CSSelectPicHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSelectPicHeadView.swift; sourceTree = "<group>"; };
 		19380498233356E3006CC711 /* CSSelectPicHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicHeadView.xib; sourceTree = "<group>"; };
 		1938049B23335732006CC711 /* CSSelectPicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSelectPicCell.swift; sourceTree = "<group>"; };
 		1938049C23335732006CC711 /* CSSelectPicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSSelectPicCell.xib; sourceTree = "<group>"; };
+		19399513238F7B46007DD326 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		19399516238F7B6D007DD326 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		193A4A4B238E80310099C7EE /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		193A4A4E238E84350099C7EE /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		1967916C22EC215A00AB9522 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -326,9 +346,11 @@
 				312F6F9B22EDF8A100F5C8F6 /* PixelEditor.framework in Frameworks */,
 				312F6F9C22EDF8A100F5C8F6 /* PixelEngine.framework in Frameworks */,
 				312F6F9D22EDF8A100F5C8F6 /* SideMenu.framework in Frameworks */,
+				19399514238F7B47007DD326 /* RealmSwift.framework in Frameworks */,
 				3195F108238AE69C003351E6 /* libGPUImage.a in Frameworks */,
 				312F6F9E22EDF8A100F5C8F6 /* TransitionPatch.framework in Frameworks */,
 				193A4A4C238E80310099C7EE /* ToastSwiftFramework.framework in Frameworks */,
+				19399517238F7B6D007DD326 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +377,7 @@
 		19213C7E22EBF58700CB8FC9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19213C7D22EBF58700CB8FC9 /* CutShadow.app */,
+				19213C7D22EBF58700CB8FC9 /* 剪影.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,6 +396,16 @@
 				3195F034238ADF8D003351E6 /* CutShadow-Bridging-Header.h */,
 			);
 			path = CutShadow;
+			sourceTree = "<group>";
+		};
+		192848FA2390BC2500EBB4A5 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				192848FD2390BC3D00EBB4A5 /* FCFMasonryViewLayout.swift */,
+				192848FC2390BC3D00EBB4A5 /* MKPhotoCollectionCell.swift */,
+				192848FB2390BC3D00EBB4A5 /* MKPhotoCollectionCell.xib */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		19380496233355E5006CC711 /* views */ = {
@@ -467,10 +499,13 @@
 		1967919B22EC220800AB9522 /* 业务 */ = {
 			isa = PBXGroup;
 			children = (
+				192849052390CBA400EBB4A5 /* DownloadTool.swift */,
+				192849032390C63600EBB4A5 /* PicModel.swift */,
 				3109743A23329276002B20D9 /* PicThing */,
 				312F6F9F22EE005200F5C8F6 /* menu */,
 				1967919C22EC229A00AB9522 /* HomeVC.swift */,
 				3109743823329011002B20D9 /* HomeVC+Menu.swift */,
+				192849012390BC9300EBB4A5 /* HomeVC+CollectV.swift */,
 				1967919D22EC229A00AB9522 /* HomeVC.xib */,
 			);
 			path = "业务";
@@ -514,6 +549,8 @@
 		312F6F9622EDF8A000F5C8F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19399516238F7B6D007DD326 /* Realm.framework */,
+				19399513238F7B46007DD326 /* RealmSwift.framework */,
 				193A4A4E238E84350099C7EE /* SnapKit.framework */,
 				193A4A4B238E80310099C7EE /* ToastSwiftFramework.framework */,
 				3195F109238AE6BF003351E6 /* AVKit.framework */,
@@ -528,6 +565,7 @@
 		312F6F9F22EE005200F5C8F6 /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				192848FA2390BC2500EBB4A5 /* views */,
 				312F6FA022EE007B00F5C8F6 /* MenuViewController.swift */,
 			);
 			path = menu;
@@ -757,7 +795,7 @@
 			);
 			name = CutShadow;
 			productName = CutShadow;
-			productReference = 19213C7D22EBF58700CB8FC9 /* CutShadow.app */;
+			productReference = 19213C7D22EBF58700CB8FC9 /* 剪影.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -799,6 +837,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192848FE2390BC3E00EBB4A5 /* MKPhotoCollectionCell.xib in Resources */,
 				3195EDD8238A6D18003351E6 /* TakePhotoVC.xib in Resources */,
 				19213C8B22EBF58800CB8FC9 /* LaunchScreen.storyboard in Resources */,
 				3109743E233292E1002B20D9 /* CSSelectPicVC.xib in Resources */,
@@ -847,7 +886,9 @@
 				1967919922EC217F00AB9522 /* FCFNavigationController.swift in Sources */,
 				3195EDD3238A630C003351E6 /* TakeVideoVC.swift in Sources */,
 				1967919022EC215B00AB9522 /* DefaultHeader.swift in Sources */,
+				192849022390BC9300EBB4A5 /* HomeVC+CollectV.swift in Sources */,
 				1967918722EC215B00AB9522 /* NotificationNameExtension.swift in Sources */,
+				192848FF2390BC3E00EBB4A5 /* MKPhotoCollectionCell.swift in Sources */,
 				19213C8322EBF58700CB8FC9 /* ViewController.swift in Sources */,
 				1938049D23335732006CC711 /* CSSelectPicCell.swift in Sources */,
 				3109743923329011002B20D9 /* HomeVC+Menu.swift in Sources */,
@@ -867,8 +908,11 @@
 				191ABE982335F08700E10E25 /* PhotoManager.swift in Sources */,
 				3195EDD7238A6D18003351E6 /* TakePhotoVC.swift in Sources */,
 				312F6FA122EE007B00F5C8F6 /* MenuViewController.swift in Sources */,
+				192849042390C63600EBB4A5 /* PicModel.swift in Sources */,
 				1967918622EC215B00AB9522 /* UILableExtension.swift in Sources */,
+				192849062390CBA400EBB4A5 /* DownloadTool.swift in Sources */,
 				1967918222EC215B00AB9522 /* DeviceExtension.swift in Sources */,
+				192849002390BC3E00EBB4A5 /* FCFMasonryViewLayout.swift in Sources */,
 				1967918922EC215B00AB9522 /* DateExtenstion.swift in Sources */,
 				1967918C22EC215B00AB9522 /* ViewExtension.swift in Sources */,
 				1967919722EC217F00AB9522 /* FCFTabBarController.swift in Sources */,
@@ -1044,7 +1088,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fcf.CutShadow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "剪影";
 				SWIFT_OBJC_BRIDGING_HEADER = "CutShadow/CutShadow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1076,7 +1120,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fcf.CutShadow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "剪影";
 				SWIFT_OBJC_BRIDGING_HEADER = "CutShadow/CutShadow-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

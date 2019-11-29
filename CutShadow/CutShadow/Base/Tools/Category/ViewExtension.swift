@@ -255,5 +255,128 @@ extension UIView {
             self.addSubview(imgView)
         }
     }
+    
+    //画虚线
+    func addlineWithColor(color:UIColor,boarderW:CGFloat,startP:CGPoint,endP:CGPoint,lineType:[NSNumber]=[]) {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        
+        let path = UIBezierPath()
+        path.move(to: startP)
+        path.addLine(to: endP)
+        
+        shapeLayer.path = path.cgPath
+        shapeLayer.lineWidth = boarderW
+        shapeLayer.lineCap = CAShapeLayerLineCap(rawValue: "square")
+        if lineType.count > 0 {
+            shapeLayer.lineDashPattern = lineType
+        }
+        
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    //四周添加阴影
+    @objc func addAllShadow(shadowRadius: CGFloat, shadowColor:CGColor, offset:CGSize = CGSize(width: 0, height: 0),opacity:Float = 0.9) {
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = offset //阴影偏移量
+        self.layer.shadowRadius = shadowRadius //模糊半径
+        self.layer.shadowOpacity = opacity //不透明度
+        self.layer.shadowColor = shadowColor //
+        
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [UIRectCorner.topLeft,.bottomLeft], cornerRadii: CGSize(width: 10, height: 10))
+        self.layer.shadowPath = path.cgPath
+    }
+    
+    //三周添加阴影
+    @objc func addThreeShadow(shadowRadius: CGFloat, shadowColor:CGColor, offset:CGSize = CGSize(width: 0, height: 0),opacity:Float = 0.9) {
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = offset
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowColor = shadowColor
+        
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: shadowRadius))
+        path.addLine(to: CGPoint(x: 0, y: self.bounds.size.height))
+        path.addLine(to: CGPoint(x: self.bounds.size.width, y: self.bounds.size.height))
+        path.addLine(to: CGPoint(x: self.bounds.size.width, y: 8))
+        path.addLine(to: CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.9))
+        path.close()
+        self.layer.shadowPath = path.cgPath
+    }
+    
+    //三周添加阴影
+    @objc func addLeftAndRightShadow(shadowRadius: CGFloat, shadowColor:CGColor, offset:CGSize = CGSize(width: 0, height: 0),opacity:Float = 0.9) {
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = offset
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowColor = shadowColor
+        
+        
+        let margin = sqrt(shadowRadius*shadowRadius*2)
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: margin, y: margin))
+        path.addLine(to: CGPoint(x: margin, y: self.bounds.size.height-margin))
+        path.addLine(to: CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.4))
+        path.addLine(to: CGPoint(x: self.bounds.size.width-margin, y: margin))
+        path.addLine(to: CGPoint(x: self.bounds.size.width-margin , y: self.bounds.size.height-margin))
+        path.addLine(to: CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.6))
+        path.close()
+        self.layer.shadowPath = path.cgPath
+    }
+    
+    
+    // 给当前view添加渐变色
+    func addGradualColors(_ fromColor:String, _ toColor:String) {
+        var gradientLayer:CAGradientLayer?
+        if let sublayers = self.layer.sublayers,sublayers.count > 0 {
+            if sublayers.first!.isKind(of: CAGradientLayer.self) {
+                gradientLayer = sublayers.first as? CAGradientLayer
+            }
+        }
+        
+        if gradientLayer == nil {
+            gradientLayer = CAGradientLayer()
+            self.layer.insertSublayer(gradientLayer!, at: 0)
+        }
+        
+        
+        
+        gradientLayer!.frame = self.bounds
+        
+        //创建渐变色数组，需要转换为CGColor颜色
+        gradientLayer!.colors = [UIColor.hexString(hex: fromColor).cgColor,UIColor.hexString(hex: toColor).cgColor]
+        
+        //  设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)
+        gradientLayer!.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer!.endPoint = CGPoint(x: 1, y: 1)
+        
+        //  设置颜色变化点，取值范围 0.0~1.0
+        gradientLayer!.locations = [0,1]
+        
+    }
+    
+    func startZRotation(duration: CFTimeInterval = 1, repeatCount: Float = Float.infinity, clockwise: Bool = true)
+    {
+        if self.layer.animation(forKey: "transform.rotation.z") != nil {
+            return
+        }
+        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        let direction = clockwise ? 1.0 : -1.0
+        animation.toValue = NSNumber(value: Double.pi * 2 * direction)
+        animation.duration = duration
+        animation.isCumulative = true
+        animation.repeatCount = repeatCount
+        self.layer.add(animation, forKey:"transform.rotation.z")
+    }
+    
+    
+    /// Stop rotating the view around Z axis.
+    func stopZRotation()
+    {
+        self.layer.removeAnimation(forKey: "transform.rotation.z")
+    }
 
 }
