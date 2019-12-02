@@ -20,9 +20,9 @@ class WaveView: UIView {
     // 波浪移动速度
     var waveSpeed: CGFloat = 0.01
     // 真实波浪颜色
-    var realWaveColor: UIColor = UIColor.hex(MainColor)
+    var realWaveColor: UIColor = UIColor.hex(textColor,0.2)
     // 阴影波浪颜色
-    var maskWaveColor: UIColor = UIColor.hex(MainColor,0.3)
+    var maskWaveColor: UIColor = UIColor.hex(textColor,0.05)
     // 波浪位置（默认是在下方）
     var waveOnBottom = true
     // 波浪移动回调

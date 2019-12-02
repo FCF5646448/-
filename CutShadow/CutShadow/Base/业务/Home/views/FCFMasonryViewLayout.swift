@@ -26,19 +26,31 @@ class FCFMasonryViewLayout: UICollectionViewLayout {
     override var collectionViewContentSize: CGSize {
         var currentColumn:CGFloat = 0
         var maxHeight:CGFloat = 0
-        while currentColumn < self.numberOfColumns && Int(currentColumn) < self.lastYValueForColumn.count {
+        
+        repeat{
             let height:CGFloat = self.lastYValueForColumn[currentColumn]!
             if height > maxHeight {
                 maxHeight = height
             }
             currentColumn += 1
-        }
+        } while currentColumn < self.numberOfColumns
+        
+//        while currentColumn < self.numberOfColumns && Int(currentColumn) < self.lastYValueForColumn.count {
+//            let height:CGFloat = self.lastYValueForColumn[currentColumn]!
+//            if height > maxHeight {
+//                maxHeight = height
+//            }
+//            currentColumn += 1
+//        }
         return CGSize(width: self.collectionView!.frame.size.width, height: maxHeight)
     }
     
     //这个方法是在布局快要生效时调用，所以在这个函数里计算好每一个item的position和size。并将其缓存下来，这有助于滚动的流畅性。
     override func prepare() {
         super.prepare()
+        self.lastYValueForColumn.removeAll()
+        self.layoutInfo.removeAll()
+        
         var currentColumn:CGFloat = 0.0
         let fullWidth = self.collectionView!.frame.size.width
         let availableSpaceExcludingPadding = fullWidth - (self.interItemSpacing * (self.numberOfColumns + 1))
@@ -56,7 +68,7 @@ class FCFMasonryViewLayout: UICollectionViewLayout {
                 let itemAttributes:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath as IndexPath)
                 
                 let x:CGFloat = self.interItemSpacing + (self.interItemSpacing + itemwidth) * currentColumn
-                var y:CGFloat = Int(currentColumn) < self.lastYValueForColumn.count ?   (self.lastYValueForColumn[currentColumn]!) : 0
+                var y:CGFloat = self.lastYValueForColumn[currentColumn] ?? 0  //Int(currentColumn) < self.lastYValueForColumn.count ?   (self.lastYValueForColumn[currentColumn]!) : 0
                 let height:CGFloat = (self.delegate?.collectionView(collection: self.collectionView!, layout: self, heightForItemAtIndexPath: indexPath))!
                 
                 itemAttributes.frame = CGRect(x: x, y: y, width: itemwidth, height: height)

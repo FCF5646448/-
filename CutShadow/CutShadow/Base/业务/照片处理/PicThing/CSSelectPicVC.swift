@@ -32,7 +32,7 @@ class CSSelectPicVC: FCFBaseViewController {
 
 extension CSSelectPicVC {
     func initUI() {
-        title = "照片"
+        title = "相册"
         
         collect.registerNibWithCell(CSSelectPicCell.self)
         collect.registerNibForSectionHead(CSSelectPicHeadView.self)
@@ -43,7 +43,7 @@ extension CSSelectPicVC {
             DispatchQueue.main.async {
                 if result {
                     if let currentAlbum = albums.first {
-                        weakself?.title = currentAlbum.title
+//                        weakself?.title = currentAlbum.title
                         self.dataSource = currentAlbum.fetchResult
                         self.collect.reloadData()
                     }

@@ -1,29 +1,36 @@
 //
-//  HomeVC+Menu.swift
+//  RootViewController+Menu.swift
 //  CutShadow
 //
-//  Created by 冯才凡 on 2019/9/19.
+//  Created by 冯才凡 on 2019/12/2.
 //  Copyright © 2019 冯才凡. All rights reserved.
 //
 
 import Foundation
+
 import SideMenu
 
 
-extension HomeVC {
+// 创建一个按钮（点击后显示侧栏菜单）
+let rootVC = (UIApplication.shared.delegate as! AppDelegate).rootVC
+var menuBtn:UIButton = {
+    let button = UIButton(type:.custom)
+    button.frame = CGRect(x:0, y:kNavBarHeight - 44, width:44, height:44)
+    button.setImage(UIImage(named: "home"), for: .normal)
+    button.addTarget(rootVC, action:#selector(RootViewController.tapped), for:.touchUpInside)
+    return button
+}()
+
+extension RootViewController {
     
     func settingMenu() {
         
-        // 创建一个按钮（点击后显示侧栏菜单）
-        let button = UIButton(type:.custom)
-        button.frame = CGRect(x:0, y:kNavBarHeight - 44, width:44, height:44)
-        button.setImage(UIImage(named: "home"), for: .normal)
-        button.addTarget(self, action:#selector(tapped), for:.touchUpInside)
-        let itemBar = UIBarButtonItem(customView: button)
-        self.navigationItem.leftBarButtonItem = itemBar
+        
+//        let itemBar = UIBarButtonItem(customView: button)
+//        self.navigationItem.leftBarButtonItem = itemBar
         //
         // 定义一个侧栏菜单
-        let menu = UISideMenuNavigationController(rootViewController: MenuViewController())
+        let menu = SideMenuNavigationController(rootViewController: MenuViewController())
         menu.isNavigationBarHidden = true //侧栏菜单不显示导航栏
         menu.menuWidth = round(min(WIDTH, HEIGHT) * 0.5)
         // 将其作为默认的右侧菜单
@@ -69,11 +76,13 @@ extension HomeVC {
         menu.presentationStyle.onTopShadowOpacity = 0.4
         menu.presentationStyle.onTopShadowRadius = 10
         
+        
+        
     }
     
 }
 
-extension HomeVC {
+extension RootViewController {
     // 按钮点击响应
     @objc func tapped(){
         // 显示侧栏菜单
@@ -83,25 +92,26 @@ extension HomeVC {
 }
 
 
-extension HomeVC: UISideMenuNavigationControllerDelegate {
+extension RootViewController: SideMenuNavigationControllerDelegate {
     
     // 侧栏菜单将要显示时触发
-    func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
         print("菜单将要显示! (是否有动画: \(animated))")
     }
     
     // 侧栏菜单显示完毕时触发
-    func sideMenuDidAppear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuDidAppear(menu: SideMenuNavigationController, animated: Bool) {
         print("菜单显示完成! (是否有动画: \(animated))")
     }
     
     // 侧栏菜单将要隐藏时触发
-    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
         print("菜单将要隐藏!(是否有动画: \(animated))")
     }
     
     // 侧栏菜单隐藏完毕时触发
-    func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+    func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
         print("菜单隐藏完毕!(是否有动画: \(animated))")
     }
 }
+

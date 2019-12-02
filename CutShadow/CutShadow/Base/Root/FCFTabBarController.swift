@@ -22,6 +22,6 @@ class FCFTabBarController: UITabBarController {
     
     func initFrame() {
         self.addChild(self.homeNavi)
-
+        
     }
 }

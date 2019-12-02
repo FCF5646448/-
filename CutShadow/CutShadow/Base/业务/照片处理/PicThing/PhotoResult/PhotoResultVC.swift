@@ -137,8 +137,14 @@ extension PhotoResultVC {
     
     //保存图片到app
     @objc func savePhotoLocal() {
+        
+        self.view.makeToastActivity(.center)
         //
         DownloadTool.share.saveImage(img: self.img)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5) {
+            self.view.hideToastActivity()
+            self.view.makeToast("保存成功")
+        }
     }
     
     @objc func addTextBtnAction() {

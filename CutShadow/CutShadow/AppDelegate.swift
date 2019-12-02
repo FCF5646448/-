@@ -14,9 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    lazy var homeNavi:FCFNavigationController = {
-        let n = FCFNavigationController(rootViewController: HomeVC())
-        n.setTabBar("write", "write_sel", UIColor.hex("8a8a8a"), UIColor.hex(MainColor),title:"剪影")
+    let rootVC = RootViewController()
+    lazy var rootNiv:FCFNavigationController = {
+        let n = FCFNavigationController(rootViewController: rootVC)
+//        n.setTabBar("write", "write_sel", UIColor.hex("8a8a8a"), UIColor.hex(MainColor),title:"剪影")
         return n
     }()
 
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = self.homeNavi
+        window?.rootViewController = self.rootNiv
         
         return true
     }

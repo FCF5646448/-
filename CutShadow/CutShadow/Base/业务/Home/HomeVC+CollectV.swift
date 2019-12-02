@@ -13,7 +13,6 @@ import RealmSwift
 extension HomeVC {
     func searchData() {
         self.photoList.removeAll()
-        
         // 获取所有的记录
         let realm = try! Realm()
         let allRecord:Results<PicModel> = realm.objects(PicModel.self)
@@ -26,9 +25,9 @@ extension HomeVC {
         
         
         if self.photoList.count > 0 {
-            self.hintLabel.isHidden = true
+            self.hintV.isHidden = true
         }else{
-            self.hintLabel.isHidden = false
+            self.hintV.isHidden = false
         }
         
         collection.reloadData()

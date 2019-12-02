@@ -164,4 +164,72 @@ class ToolManager{
         }
     }
     
+
+    class func currentTimeSecond() ->TimeInterval {
+        return Date().timeIntervalSince1970
+    }
+
+    // 时间转成完整字符串
+    class func timeToStr(_ s:TimeInterval) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy.MM.dd HH:mm:ss"
+        let date = Date(timeIntervalSince1970: s)
+        return dateformat.string(from: date)
+    }
+    // 时间转成年月日
+    class func timeToDStr(_ s:TimeInterval) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy.MM.dd"
+        let date = Date(timeIntervalSince1970: s)
+        return dateformat.string(from: date)
+    }
+    // 时间转成年月
+    class func timeToMStr(_ s:TimeInterval) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy.MM"
+        let date = Date(timeIntervalSince1970: s)
+        return dateformat.string(from: date)
+    }
+    // 时间转成完整字符串
+    class func timeToHStr(_ s:TimeInterval) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "HH:mm:ss"
+        let date = Date(timeIntervalSince1970: s)
+        return dateformat.string(from: date)
+    }
+
+    // 时间转成年月
+    class func timeOnlyToMStr(_ s:TimeInterval) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "MM"
+        let date = Date(timeIntervalSince1970: s)
+        return dateformat.string(from: date)
+    }
+
+    // 时间转成年月
+    class func timeOnlyToDStr(_ s:TimeInterval) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "dd"
+        let date = Date(timeIntervalSince1970: s)
+        return dateformat.string(from: date)
+    }
+
+    // 时间转成年月
+    class func timeOnlyToTStr(_ s:TimeInterval) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy-MM HH:mm:ss"
+        let date = Date(timeIntervalSince1970: s)
+        return dateformat.string(from: date)
+    }
+
+    //更加时间获取星期
+    class func getTodayWeekDay(_ s:TimeInterval)-> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let date = Date(timeIntervalSince1970: s)
+        let weekDay = dateFormatter.string(from: date)
+        return weekDay
+    }
+
+    
 }
