@@ -27,21 +27,13 @@ class FCFMasonryViewLayout: UICollectionViewLayout {
         var currentColumn:CGFloat = 0
         var maxHeight:CGFloat = 0
         
-        repeat{
+        while currentColumn < self.numberOfColumns && Int(currentColumn) < self.lastYValueForColumn.count {
             let height:CGFloat = self.lastYValueForColumn[currentColumn]!
             if height > maxHeight {
                 maxHeight = height
             }
             currentColumn += 1
-        } while currentColumn < self.numberOfColumns
-        
-//        while currentColumn < self.numberOfColumns && Int(currentColumn) < self.lastYValueForColumn.count {
-//            let height:CGFloat = self.lastYValueForColumn[currentColumn]!
-//            if height > maxHeight {
-//                maxHeight = height
-//            }
-//            currentColumn += 1
-//        }
+        }
         return CGSize(width: self.collectionView!.frame.size.width, height: maxHeight)
     }
     
