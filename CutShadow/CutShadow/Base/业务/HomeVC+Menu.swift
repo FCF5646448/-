@@ -15,9 +15,9 @@ extension HomeVC {
     func settingMenu() {
         
         // 创建一个按钮（点击后显示侧栏菜单）
-        let button = UIButton(type:.system)
-        button.frame = CGRect(x:0, y:kNavBarHeight - 44, width:64, height:44)
-        button.setTitle("menu", for:.normal)
+        let button = UIButton(type:.custom)
+        button.frame = CGRect(x:0, y:kNavBarHeight - 44, width:44, height:44)
+        button.setImage(UIImage(named: "home"), for: .normal)
         button.addTarget(self, action:#selector(tapped), for:.touchUpInside)
         let itemBar = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = itemBar
@@ -64,8 +64,8 @@ extension HomeVC {
         menu.presentationStyle.menuScaleFactor = 1.0
         
         // 动画过程的背景色
-        menu.presentationStyle.backgroundColor = UIColor.hex(MainColor)
-        menu.presentationStyle.onTopShadowColor = UIColor.hex(MainColor)
+        menu.presentationStyle.backgroundColor = UIColor.hex("8a8a8a")
+        menu.presentationStyle.onTopShadowColor = UIColor.hex("8a8a8a")
         menu.presentationStyle.onTopShadowOpacity = 0.4
         menu.presentationStyle.onTopShadowRadius = 10
         

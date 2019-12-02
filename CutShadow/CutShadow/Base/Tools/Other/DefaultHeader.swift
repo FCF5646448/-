@@ -28,7 +28,8 @@ let kIsIPad:Bool             = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdio
 
 
 //主题色
-let MainColor = "f0b7ef" // "ff80ab"
+let MainColor = "ffffff" // "ff80ab"
+let textColor = "8a8a8a"
 
 //
 let BackColor = "ECECEC"

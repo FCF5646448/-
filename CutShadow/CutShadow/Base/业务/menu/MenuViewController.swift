@@ -11,8 +11,7 @@ import UIKit
 // 菜单视图控制器
 class MenuViewController: UITableViewController {
     
-    
-    
+    var item:[(String,String)] = [("jyW","剪影"),("rdW","文字"),("stW","帮助")]
     override func viewDidLoad() {
         super.viewDidLoad()
         //创建一个重用的单元格
@@ -36,7 +35,8 @@ class MenuViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
         -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-            cell.textLabel?.text = "菜单\(indexPath.row + 1)"
+            cell.imageView?.image = UIImage(named:item[indexPath.row].0)
+            cell.textLabel?.text = item[indexPath.row].1
             cell.backgroundColor = .clear
             cell.contentView.backgroundColor = UIColor.clear
             return cell

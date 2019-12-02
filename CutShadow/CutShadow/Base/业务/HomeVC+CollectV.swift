@@ -19,6 +19,7 @@ extension HomeVC {
         let allRecord:Results<PicModel> = realm.objects(PicModel.self)
         if allRecord.count > 0 {
             for item in allRecord {
+                print(item.name)
                 self.photoList.append(item)
             }
         }
@@ -62,20 +63,9 @@ extension HomeVC:UICollectionViewDataSource {
             cell.imgview.image = thumbImg
         }else{
             //优化，将加载image的IO操作放到后台线程里
-            DispatchQueue.global().async {
-                if photo.path != "" {
-                    let photoFilePath = photo.path
-                    let img = UIImage(contentsOfFile: photoFilePath)
-                    let size = cell.imgview.size
-                    UIGraphicsBeginImageContext(CGSize(width: size.width, height: size.height))
-                    img?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-                    let thumbImg1 = UIGraphicsGetImageFromCurrentImageContext()
-                    UIGraphicsEndImageContext()
-                    DispatchQueue.main.async {
-                        self.photosCaches[photo.name] = thumbImg1
-                        cell.imgview.image = thumbImg1
-                    }
-                }
+            if let img = DownloadTool.share.loadImageFromDiskWith(imgName: photo.name) {
+                self.photosCaches[photo.name] = img
+                cell.imgview.image = img
             }
         }
         

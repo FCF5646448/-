@@ -419,6 +419,16 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		1958B7762394AD8C009851E2 /* 照片处理 */ = {
+			isa = PBXGroup;
+			children = (
+				192849052390CBA400EBB4A5 /* DownloadTool.swift */,
+				192849032390C63600EBB4A5 /* PicModel.swift */,
+				3109743A23329276002B20D9 /* PicThing */,
+			);
+			path = "照片处理";
+			sourceTree = "<group>";
+		};
 		1967916922EC215200AB9522 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,9 +509,7 @@
 		1967919B22EC220800AB9522 /* 业务 */ = {
 			isa = PBXGroup;
 			children = (
-				192849052390CBA400EBB4A5 /* DownloadTool.swift */,
-				192849032390C63600EBB4A5 /* PicModel.swift */,
-				3109743A23329276002B20D9 /* PicThing */,
+				1958B7762394AD8C009851E2 /* 照片处理 */,
 				312F6F9F22EE005200F5C8F6 /* menu */,
 				1967919C22EC229A00AB9522 /* HomeVC.swift */,
 				3109743823329011002B20D9 /* HomeVC+Menu.swift */,
@@ -1092,7 +1100,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "CutShadow/CutShadow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1123,7 +1131,7 @@
 				PRODUCT_NAME = "剪影";
 				SWIFT_OBJC_BRIDGING_HEADER = "CutShadow/CutShadow-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

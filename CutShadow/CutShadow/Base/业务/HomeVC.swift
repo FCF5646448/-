@@ -17,7 +17,7 @@ class HomeVC: FCFBaseViewController {
             flowLayout.delegate = self
         
             //flowLayout 一定要放在初始化方法中，否则会报错。
-            let collectionview = UICollectionView(frame: self.view.bounds, collectionViewLayout: flowLayout)
+            let collectionview = UICollectionView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight), collectionViewLayout: flowLayout)
             collectionview.backgroundColor = UIColor.white
             collectionview.register(UINib.init(nibName: "MKPhotoCollectionCell", bundle: nil), forCellWithReuseIdentifier: "MKPhotoCollectionCell")
             collectionview.delegate = self
@@ -56,6 +56,8 @@ class HomeVC: FCFBaseViewController {
 
 extension HomeVC {
     func initUI(){
+        
+        title = "首页"
         
         settingMenu()
         
