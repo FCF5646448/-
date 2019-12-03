@@ -17,29 +17,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright @ 2019 fcf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UX6-y3-OXm">
-                                <rect key="frame" x="135" y="824" width="144" height="18"/>
+                                <rect key="frame" x="127" y="814" width="160" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="m3d-BB-LJb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LDQ-ch-ihb">
-                                <rect key="frame" x="87" y="124" width="240" height="212"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大学季" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5G-UL-8s0">
+                                <rect key="frame" x="161.5" y="224" width="91" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="212" id="JIi-iZ-Pcm"/>
-                                    <constraint firstAttribute="width" constant="240" id="znI-FO-g5c"/>
+                                    <constraint firstAttribute="height" constant="36" id="BdW-xJ-E6Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon60" translatesAutoresizingMaskIntoConstraints="NO" id="kdm-pT-oqq">
+                                <rect key="frame" x="177" y="154" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="7FE-eU-WRh"/>
+                                    <constraint firstAttribute="height" constant="60" id="Xhn-dK-IVB"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LDQ-ch-ihb" secondAttribute="trailing" constant="87" id="BeU-ME-FdX"/>
+                            <constraint firstItem="O5G-UL-8s0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="180" id="Fgn-O5-z82"/>
+                            <constraint firstItem="kdm-pT-oqq" firstAttribute="centerX" secondItem="O5G-UL-8s0" secondAttribute="centerX" id="M2B-Fu-k9S"/>
                             <constraint firstItem="UX6-y3-OXm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b5N-Vr-4cS"/>
-                            <constraint firstItem="LDQ-ch-ihb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="lwN-NM-5MP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UX6-y3-OXm" secondAttribute="bottom" constant="20" id="rIA-XR-e09"/>
-                            <constraint firstItem="LDQ-ch-ihb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="s66-tB-HdJ"/>
+                            <constraint firstItem="O5G-UL-8s0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="biM-mF-ReH"/>
+                            <constraint firstItem="O5G-UL-8s0" firstAttribute="top" secondItem="kdm-pT-oqq" secondAttribute="bottom" constant="10" id="qji-i4-Tnu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UX6-y3-OXm" secondAttribute="bottom" constant="30" id="rIA-XR-e09"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -49,4 +59,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon60" width="60" height="60"/>
+    </resources>
 </document>
